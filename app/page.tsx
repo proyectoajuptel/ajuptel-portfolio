@@ -1,37 +1,30 @@
-// app/page.tsx
 export default function Home() {
   return (
-    <main className="space-y-16 p-8">
-      {/* Hero Section */}
-      <section className="text-center py-20 bg-blue-600 text-white rounded-lg">
-        <h1 className="text-5xl font-bold">Proyecto Final Scrum</h1>
-        <p className="mt-4 text-xl">
-          Portafolio del equipo mostrando fases y resultados
+    <main className="pt-24 p-8">
+      <section className="w-full bg-white rounded-lg shadow p-8 mb-8 text-center">
+        <h1 className="text-6xl font-bold text-blue-700">Portafolio Scrum</h1>
+        <p className="mt-6 text-xl text-gray-700">
+          Proyecto final del equipo Ajuptel - UNETI
         </p>
       </section>
 
-      {/* Fases de Desarrollo */}
-      <section>
-        <h2 className="text-3xl font-semibold mb-6">Fases de Desarrollo</h2>
-        <div className="space-y-6">
-          <div className="p-6 border-l-4 border-blue-600 bg-gray-50 rounded">
-            <h3 className="text-xl font-bold">1. Análisis de requisitos</h3>
-            <p>Recopilación de necesidades del cliente y definición de historias de usuario.</p>
-          </div>
-          <div className="p-6 border-l-4 border-green-600 bg-gray-50 rounded">
-            <h3 className="text-xl font-bold">2. Planificación</h3>
-            <p>Diseño de la arquitectura, asignación de tareas y definición del backlog inicial.</p>
-          </div>
-          <div className="p-6 border-l-4 border-yellow-600 bg-gray-50 rounded">
-            <h3 className="text-xl font-bold">3. Implementación</h3>
-            <p>Desarrollo del sistema utilizando las tecnologías seleccionadas.</p>
-          </div>
-          <div className="p-6 border-l-4 border-red-600 bg-gray-50 rounded">
-            <h3 className="text-xl font-bold">4. Lanzamiento</h3>
-            <p>Pruebas finales, despliegue y entrega del producto al cliente.</p>
-          </div>
-        </div>
-      </section>
+      <div className="mt-16 flex justify-center gap-6 flex-wrap">
+        <button className="w-64 py-4 bg-white text-gray-700 rounded-lg shadow transition hover:shadow-lg hover:bg-gray-50">
+          Dashboard
+        </button>
+        <button className="w-64 py-4 bg-white text-gray-700 rounded-lg shadow transition hover:shadow-lg hover:bg-gray-50">
+          Equipo
+        </button>
+        <button className="w-64 py-4 bg-white text-gray-700 rounded-lg shadow transition hover:shadow-lg hover:bg-gray-50">
+          Empresa
+        </button>
+        <button className="w-64 py-4 bg-white text-gray-700 rounded-lg shadow transition hover:shadow-lg hover:bg-gray-50">
+          Fases
+        </button>
+        <button className="w-64 py-4 bg-white text-gray-700 rounded-lg shadow transition hover:shadow-lg hover:bg-gray-50">
+          Conclusiones
+        </button>
+      </div>
     </main>
-  );
+  )
 }
