@@ -56,6 +56,7 @@ const equipoData = [
 
 export default function EquipoPage() {
   return (
+    
     <div className="max-w-7xl mx-auto space-y-12">
       <div className="text-left">
         <h2 className="text-5xl font-extrabold italic text-slate-900 tracking-tighter">Nuestro Equipo Scrum</h2>
