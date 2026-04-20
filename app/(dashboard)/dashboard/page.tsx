@@ -1,66 +1,79 @@
-"use client"
+// app/(dashboard)/dashboard/page.tsx
+import { fasesProyecto } from "./fases";
+import { Lock, Clock, CheckCircle2, LayoutDashboard } from "lucide-react";
 
-import AppSidebar from "@/app/components/Sidebar"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { Sun, LayoutDashboard, FileText } from "lucide-react"
-
-export default function DashboardPage() {
+export default function DashboardHome() {
   return (
-    <SidebarProvider>
-      {/* h-screen asegura que ocupe todo el alto sin mostrar el header de la landing */}
-      <div className="flex h-screen w-full overflow-hidden bg-[#F8F9FB]">
-        <AppSidebar />
-        
-        <SidebarInset className="flex flex-col flex-1 overflow-hidden">
-          {/* Header Único del Dashboard */}
-          <header className="flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6">
-            <div className="flex items-center gap-4">
-              <SidebarTrigger className="text-slate-500 hover:bg-slate-100 rounded-md transition-colors" />
-              <div className="h-4 w-px bg-slate-200" />
-              <div className="flex items-center gap-2 text-slate-600">
-                 <LayoutDashboard size={16} />
-                 <span className="text-sm font-semibold italic">Panel de Fases</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <button className="p-2 hover:bg-orange-50 rounded-full text-orange-400 transition-colors">
-                <Sun size={20} />
-              </button>
-              <div className="hidden md:flex bg-slate-100 px-3 py-1 rounded-full border border-slate-200 items-center gap-2">
-                <span className="text-[10px] font-bold text-slate-500 uppercase">UNETI · Caso 9</span>
-              </div>
-            </div>
-          </header>
-
-          {/* Contenido con Scroll Independiente */}
-          <main className="flex-1 overflow-y-auto p-8 lg:p-12">
-            <div className="max-w-7xl mx-auto">
-              <div className="mb-12">
-                <h2 className="text-5xl font-black text-slate-900 tracking-tight mb-3 italic">Vista General</h2>
-                <p className="text-slate-400 text-lg font-medium">Documentación técnica y estratégica del proyecto.</p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Aquí pegas las tarjetas premium que ya configuramos */}
-                <div className="bg-white rounded-4xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden">
-                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500" />
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="h-12 w-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
-                      <FileText size={24} />
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-400 bg-slate-50 px-3 py-1 rounded-full uppercase">#1 · PDF</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">Acta de Constitución</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-8">Formalización legal y autorización de recursos.</p>
-                  <button className="w-full py-3.5 bg-slate-900 text-white rounded-2xl font-bold hover:bg-blue-600 transition-all">Ver Detalles</button>
-                </div>
-                {/* ... más tarjetas ... */}
-              </div>
-            </div>
-          </main>
-        </SidebarInset>
+    <div className="p-8 max-w-5xl mx-auto">
+      {/* Encabezado Principal */}
+      <div className="flex items-center gap-3 mb-6">
+        <LayoutDashboard className="text-blue-600" size={32} />
+        <h1 className="text-3xl font-bold text-gray-900">Hoja de Ruta AJUPTEL</h1>
       </div>
-    </SidebarProvider>
-  )
+      
+      <p className="text-gray-600 mb-10 text-lg">
+        Estado actual del ciclo de vida del proyecto de transformación digital.
+      </p>
+
+      {/* Grid de Fases */}
+      <div className="grid gap-8">
+        {fasesProyecto.map((fase) => (
+          <div 
+            key={fase.id} 
+            className={`relative border-l-4 p-6 rounded-r-xl shadow-sm transition-all ${
+              fase.bloqueado 
+              ? 'opacity-60 bg-gray-50 border-gray-300' 
+              : 'bg-white border-blue-600 shadow-md scale-[1.02]'
+            }`}
+          >
+            <div className="flex justify-between items-start">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`text-white text-xs uppercase tracking-wider font-black px-3 py-1 rounded-full ${fase.color}`}>
+                    {fase.estado}
+                  </span>
+                  {fase.bloqueado ? (
+                    <span className="flex items-center gap-1 text-gray-400 text-sm">
+                      <Lock size={14} /> Bloqueado
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1 text-blue-600 text-sm font-medium">
+                      <Clock size={14} /> Actual
+                    </span>
+                  )}
+                </div>
+                <h2 className={`text-2xl font-bold ${fase.bloqueado ? 'text-gray-500' : 'text-gray-800'}`}>
+                  {fase.titulo}
+                </h2>
+                <p className="mt-2 text-gray-600 leading-relaxed max-w-2xl">
+                  {fase.descripcion}
+                </p>
+              </div>
+            </div>
+            
+            {/* Lista de Hitos */}
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 border-t pt-4">
+              {fase.hitos.map((hito, index) => (
+                <div key={index} className="flex items-center gap-2 text-sm font-medium text-gray-500">
+                  <CheckCircle2 size={16} className={fase.bloqueado ? "text-gray-300" : "text-green-500"} />
+                  {hito}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Sección Jira - Pie de página */}
+      <div className="mt-12 p-6 bg-slate-900 text-white rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          <h3 className="text-xl font-bold text-blue-400">Planificación en Jira</h3>
+          <p className="text-slate-400 text-sm">Seguimiento de Sprints y Product Backlog en tiempo real.</p>
+        </div>
+        <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-bold transition-colors">
+          Ver Tablero
+        </button>
+      </div>
+    </div>
+  );
 }
