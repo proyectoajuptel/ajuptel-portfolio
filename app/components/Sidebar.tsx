@@ -1,6 +1,4 @@
 "use client"
-
-import * as React from "react"
 import { 
   LayoutDashboard, 
   Users, 
@@ -14,7 +12,8 @@ import {
   ChevronRight,
   FileText,
   Lock,
-  type LucideIcon
+  type LucideIcon,
+  FileSearch
 } from "lucide-react"
 
 import {
@@ -65,7 +64,7 @@ const navigation: NavGroup[] = [
   {
     group: "Proyecto AJUPTEL",
     items: [
-      { title: "Hoja de Ruta", url: "/dashboard", icon: LayoutDashboard },
+      { title: "Hoja de Ruta", url: "/dashboard/hoja", icon: LayoutDashboard },
       { title: "Contexto Organizacional", url: "/dashboard/contexto", icon: Info },
       { title: "Equipo Scrum", url: "/dashboard/equipo", icon: Users },
     ],
@@ -74,21 +73,22 @@ const navigation: NavGroup[] = [
     group: "Ciclo de Vida (Fases)",
     items: [
       { 
-        title: "Fase I: Análisis", 
+        title: "Fase I: Inicio", 
         url: "/dashboard/fase1", 
         icon: SearchCode,
         isActive: true,
         status: "Activo",
         isBlocked: false,
-        subItems: [
+        /*subItems: [
           { title: "Caso de Negocio", url: "/dashboard/fase1/caso-negocio" },
           { title: "Acta de Constitución", url: "/dashboard/fase1/acta" },
           { title: "Product Backlog", url: "/dashboard/fase1/backlog" },
-        ]
+        ]*/
       },
-      { title: "Fase II: Planificación", url: "#", icon: Milestone, status: "Por iniciar", isBlocked: true },
-      { title: "Fase III: Ejecución", url: "#", icon: Cpu, status: "Por iniciar", isBlocked: true },
-      { title: "Fase IV: Lanzamiento", url: "#", icon: Rocket, status: "Por iniciar", isBlocked: true },
+      { title: "Fase II: Estimación y Planificación", url: "#", icon: Milestone, status: "En Proceso", isBlocked: true },
+      { title: "Fase III: Implementación", url: "#", icon: Cpu, status: "Por iniciar", isBlocked: true },
+      { title: "Fase IV: Revisión y Retrospectiva", url: "#", icon: FileSearch, status: "Por iniciar", isBlocked: true },
+      { title: "Fase V: Lanzamiento", url: "#", icon: Rocket, status: "Por iniciar", isBlocked: true },
     ],
   },
   {

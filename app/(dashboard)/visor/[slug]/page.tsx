@@ -4,10 +4,58 @@ import { useRouter, useParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 const DOCS_MAP: Record<string, { title: string; file: string }> = {
-  // Añadimos la clave EXACTA que sale en tu error 404
+  // Añadimos la clave EXACTA que sale en el error 404
+  "caso_negocio_ajuptel": { 
+    title: "Caso de Negocio", 
+    file: "/docs/fase1/caso_negocio_ajuptel.pdf" 
+  },
   "ACTA_DE_CONSTITUCION_AJUPTEL": { 
     title: "ACTA_DE_CONSTITUCION_AJUPTEL", 
     file: "/docs/fase1/ACTA_DE_CONSTITUCION_AJUPTEL.pdf" 
+  },
+  "vision_proyecto_ajuptel": { 
+    title: "Registro de la Visión", 
+    file: "/docs/fase1/vision_proyecto_ajuptel.pdf" 
+  },
+  "matriz_poder_interes_ajuptel": { 
+    title: "Matriz de Poder e Interés", 
+    file: "/docs/fase1/matriz_poder_interes_ajuptel.pdf" 
+  },
+  "registro_interesados_ajuptel": { 
+    title: "Registro de Interesados", 
+    file: "/docs/fase1/registro_interesados_ajuptel.pdf" 
+  },
+  "eleccion_equipo_scrum_ajuptel": { 
+    title: "Equipo Scrum", 
+    file: "/docs/fase1/eleccion_equipo_scrum_ajuptel.pdf" 
+  },
+  "backlog_ajuptel": { 
+    title: "Product Backlog", 
+    file: "/docs/fase1/backlog_ajuptel.pdf" 
+  },
+  "release_plan_ajuptel": { 
+    title: "Plan de Lanzamiento", 
+    file: "/docs/fase1/release_plan_ajuptel.pdf" 
+  },
+  "arquitectura_4mas1_ajuptel": { 
+    title: "Arquitectura Inicial (4+1)", 
+    file: "/docs/fase1/arquitectura_4mas1_ajuptel.pdf" 
+  },
+  "plan_trabajo_dev_ajuptel": { 
+    title: "Plan de Trabajo", 
+    file: "/docs/fase1/plan_trabajo_dev_ajuptel.pdf" 
+  },
+  "cronograma_dev_ajuptel": { 
+    title: "Cronograma Detallado", 
+    file: "/docs/fase1/cronograma_dev_ajuptel.pdf" 
+  },
+  "documento_inicial_ajuptel": { 
+    title: "Documento Inicial", 
+    file: "/docs/fase1/documento_inicial_ajuptel.pdf" 
+  },
+  "lean_inception_ajuptel": { 
+    title: "Lean Inception", 
+    file: "/docs/fase1/lean_inception_ajuptel.pdf" 
   }
 };
 
