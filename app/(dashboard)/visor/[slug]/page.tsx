@@ -29,9 +29,13 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
     title: "Equipo Scrum", 
     file: "/docs/fase1/eleccion_equipo_scrum_ajuptel.pdf" 
   },
-  "backlog_ajuptel": { 
+  "product_backlog_ajuptel": { 
     title: "Product Backlog", 
-    file: "/docs/fase1/backlog_ajuptel.pdf" 
+    file: "/docs/fase1/product_backlog_ajuptel.pdf" 
+  },
+  "epicas_ajuptel": { 
+    title: "Caso de Negocio", 
+    file: "/docs/fase1/epicas_ajuptel.pdf" 
   },
   "release_plan_ajuptel": { 
     title: "Plan de Lanzamiento", 

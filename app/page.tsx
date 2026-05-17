@@ -37,10 +37,11 @@ export default function HomePage() {
         {/* Botones */}
         <div className="flex flex-col sm:flex-row gap-4 items-center">
           <Link href="/dashboard">
-            <button className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-black transition-all shadow-xl shadow-slate-200 flex items-center gap-2 group cursor-pointer">
-              Explorar Portafolio
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform text-white" />
-            </button>
+            {/* Botón Explorar Portafolio con Azul Navy Oficial */}
+<button className="px-8 py-4 bg-[#0a2540] text-white rounded-2xl font-bold hover:bg-[#001529] transition-all transform hover:scale-[1.03] shadow-xl shadow-[#0a2540]/20 flex items-center gap-2 group cursor-pointer text-base">
+  Explorar Portafolio
+  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform text-white" />
+</button>
           </Link>
           <Link href="/dashboard/contexto">
             <button className="px-8 py-4 bg-white text-slate-600 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all cursor-pointer">
@@ -64,7 +65,7 @@ export default function HomePage() {
               <Code2 className="text-blue-600 group-hover:text-white transition-colors" />
             </div>
             <h3 className="font-bold text-slate-900 text-lg mb-2">Stack Tecnológico</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">Arquitectura moderna utilizando Next.js 14, TypeScript y Tailwind CSS.</p>
+            <p className="text-slate-500 text-sm leading-relaxed">Arquitectura robusta basada en **Node.js + NestJS** para el backend, **Angular 20 + Ionic 8** para una interfaz web responsiva e híbrida, y **MySQL 8.0** como base de datos relacional.</p>
           </div>
 
           <div className="p-8 rounded-4xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-2xl hover:shadow-blue-100 transition-all group text-left">

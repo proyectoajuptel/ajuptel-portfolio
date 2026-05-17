@@ -1,5 +1,5 @@
 // app/(dashboard)/dashboard/page.tsx
-import { fasesProyecto } from "./../fases";
+import { fasesProyecto } from "../hojaRuta";
 import { Lock, Clock, CheckCircle2, LayoutDashboard } from "lucide-react";
 
 export default function DashboardHome() {

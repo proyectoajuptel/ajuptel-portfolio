@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portafolio Scrum | Caso 9",
-  description: "Proyecto Final de Metodología Scrum - Equipo Ajuptel",
+  title: "Portafolio | Proyecto AJUPTEL",
+  description: "Proyecto Sociotecnológico con Marco de Trabajo Scrum - Ajuptel",
 };
 
 export default function RootLayout({
