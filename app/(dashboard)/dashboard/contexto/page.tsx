@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Building2, Target, ShieldAlert, Cpu, Users2, BarChart3 } from "lucide-react";
+import Image from 'next/image';
+import { Building2, Target, ShieldAlert, Cpu, Users2, BarChart3, MapPin } from "lucide-react";
 
 export default function ContextoProyectoPage() {
   return (
@@ -17,6 +18,7 @@ export default function ContextoProyectoPage() {
         </p>
       </header>
 
+      {/* Grid Principal de Tarjetas (Fila superior e intermedia) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         {/* Tarjeta 1: La Organización */}
@@ -101,11 +103,85 @@ export default function ContextoProyectoPage() {
 
       </div>
 
+      {/* NUEVA SECCIÓN: Ubicación Geográfica e Infraestructura Física */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <MapPin className="text-blue-600" size={24} />
+          <h2 className="text-lg font-bold text-slate-800 uppercase tracking-tight">Sede y Ubicación Geográfica</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Detalles de la Dirección */}
+          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded">
+                Sede Principal
+              </span>
+              <h3 className="text-slate-900 font-bold mt-4 mb-2 text-base">Dirección Fiscal e Institucional</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Urb. Carabobo, calle 149, número 101-52, al lado del Hotel Coronado Suites.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <span className="text-slate-400 block">Ciudad:</span>
+                <span className="font-bold text-slate-800">Valencia</span>
+              </div>
+              <div>
+                <span className="text-slate-400 block">Municipio:</span>
+                <span className="font-bold text-slate-800">Valencia</span>
+              </div>
+              <div className="mt-2">
+                <span className="text-slate-400 block">Parroquia:</span>
+                <span className="font-bold text-slate-800">San José</span>
+              </div>
+              <div className="mt-2">
+                <span className="text-slate-400 block">Estado:</span>
+                <span className="font-bold text-slate-800">Carabobo</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Imagen de la Fachada (casa ajuptel.svg) */}
+          <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center justify-center">
+            <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2 self-start pl-2">
+              Fachada de la Asociación
+            </span>
+            <div className="relative w-full h-48 rounded-lg overflow-hidden border border-slate-100">
+              <Image 
+                src="/casa-ajuptel.svg" 
+                alt="Sede AJUPTEL Carabobo" 
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Imagen del Mapa Georreferenciado (Mapa ajuptel.svg) */}
+          <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center justify-center">
+            <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2 self-start pl-2">
+              Ubicación en Mapa
+            </span>
+            <div className="relative w-full h-48 rounded-lg overflow-hidden border border-slate-100">
+              <Image 
+                src="/mapa-ajuptel.svg" 
+                alt="Mapa de Ubicación AJUPTEL" 
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Sección de Interesados Clave - Estilo Tabla Profesional */}
       <section className="mt-10">
         <div className="flex items-center gap-3 mb-6">
           <Users2 className="text-blue-600" size={24} />
-          <h2 className="text-lg font-bold text-slate-800 uppercase tracking-tight">Interesados del Proyecto</h2>
+          <h2 className="text-lg font-bold text-slate-800 uppercase tracking-tight">Contactos Interesados del Proyecto</h2>
         </div>
         <div className="overflow-hidden bg-white border border-slate-200 rounded-xl">
           <table className="min-w-full divide-y divide-slate-200 text-left">
@@ -113,19 +189,29 @@ export default function ContextoProyectoPage() {
               <tr>
                 <th className="px-6 py-3 text-xs font-bold text-slate-500 uppercase">Rol</th>
                 <th className="px-6 py-3 text-xs font-bold text-slate-500 uppercase">Nombre</th>
-                <th className="px-6 py-3 text-xs font-bold text-slate-500 uppercase text-right">Interés Principal</th>
+                <th className="px-6 py-3 text-xs font-bold text-slate-500 uppercase text-right">Correo Electrónico</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200 text-sm">
               <tr>
                 <td className="px-6 py-4 font-bold text-blue-600">Patrocinador</td>
                 <td className="px-6 py-4 text-slate-900 font-medium">Sr. Medardo A. Guerrero García</td>
-                <td className="px-6 py-4 text-slate-500 text-right">Mejora tangible en la atención al agremiado.</td>
+                <td className="px-6 py-4 text-slate-500 text-right">medardo.guerrero001@gmail.com</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 font-bold text-blue-600">Product Owner</td>
-                <td className="px-6 py-4 text-slate-900 font-medium">TSU. Nattier Caraballo</td>
-                <td className="px-6 py-4 text-slate-500 text-right">Automatización y control de procesos administrativos.</td>
+                <td className="px-6 py-4 font-bold text-blue-600">Secretaria General</td>
+                <td className="px-6 py-4 text-slate-900 font-medium">Sra. Benilde Domínguez</td>
+                <td className="px-6 py-4 text-slate-500 text-right">negra3469@gmail.com</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 font-bold text-blue-600">Junta Directiva (Vocal)</td>
+                <td className="px-6 py-4 text-slate-900 font-medium">Sr. Osvaldo Reyes</td>
+                <td className="px-6 py-4 text-slate-500 text-right">ojrr2708@gmail.com</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 font-bold text-blue-600">Director de Tecnología</td>
+                <td className="px-6 py-4 text-slate-900 font-medium">Ing. Gabriel Falcón</td>
+                <td className="px-6 py-4 text-slate-500 text-right">gabofalcon29@gmail.com</td>
               </tr>
             </tbody>
           </table>
