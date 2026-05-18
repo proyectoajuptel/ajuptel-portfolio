@@ -10,7 +10,7 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
     file: "/docs/fase1/caso_negocio_ajuptel.pdf" 
   },
   "ACTA_DE_CONSTITUCION_AJUPTEL": { 
-    title: "ACTA_DE_CONSTITUCION_AJUPTEL", 
+    title: "Acta de Constitución", 
     file: "/docs/fase1/ACTA_DE_CONSTITUCION_AJUPTEL.pdf" 
   },
   "vision_proyecto_ajuptel": { 
@@ -34,7 +34,7 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
     file: "/docs/fase1/product_backlog_ajuptel.pdf" 
   },
   "epicas_ajuptel": { 
-    title: "Caso de Negocio", 
+    title: "Información para Épicas", 
     file: "/docs/fase1/epicas_ajuptel.pdf" 
   },
   "release_plan_ajuptel": { 

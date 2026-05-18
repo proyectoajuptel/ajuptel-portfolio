@@ -23,7 +23,7 @@ export default function FaseUnoPage() {
     { id: "p1-5", nombre: "1.5. Registro de Interesados", slug: "registro_interesados_ajuptel", tipo: "EXCEL", linkWord: "/docs/fase1/registro_interesados_ajuptel.doc" },
     { id: "p1-6", nombre: "1.6. Equipo Scrum", slug: "eleccion_equipo_scrum_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/eleccion_equipo_scrum_ajuptel.docx" },
     { id: "p1-7", nombre: "1.7. Product Backlog", slug: "product_backlog_ajuptel", tipo: "PDF,XLSX", linkWord: "/docs/fase1/product_backlog_ajuptel.xlsx" },
-    { id: "p1-7", nombre: "1.7.a. Información para Épicas ", slug: "epicas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/epicas_ajuptel.docx" },
+    { id: "p1-7a", nombre: "1.7.a. Información para Épicas ", slug: "epicas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/epicas_ajuptel.docx" },
     { id: "p1-8", nombre: "1.8. Plan de Lanzamiento", slug: "release_plan_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/release_plan_ajuptel.docx" },
     { id: "p1-9", nombre: "1.9. Arquitectura Inicial", slug: "arquitectura_4mas1_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/arquitectura_4mas1_ajuptel.docx" },
     { id: "p1-10", nombre: "1.10. Plan de Trabajo", slug: "plan_trabajo_dev_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/plan_trabajo_dev_ajuptel.docx" },
