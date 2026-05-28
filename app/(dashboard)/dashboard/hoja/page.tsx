@@ -1,21 +1,49 @@
-// app/(dashboard)/dashboard/page.tsx
-import { fasesProyecto } from "../hojaRuta";
-import { Lock, Clock, CheckCircle2, LayoutDashboard } from "lucide-react";
+"use client"
 
-export default function DashboardHome() {
+import Link from "next/link"; // Importamos Link para la navegación interna
+import { fasesProyecto } from "../hojaRuta"; 
+import { Lock, Clock, CheckCircle2, Map, ArrowLeft } from "lucide-react"; // Añadimos ArrowLeft
+
+export default function HojaRutaPage() {
   return (
-    <div className="p-8 max-w-5xl mx-auto">
-      {/* Encabezado Principal */}
-      <div className="flex items-center gap-3 mb-6">
-        <LayoutDashboard className="text-blue-600" size={32} />
-        <h1 className="text-3xl font-bold text-gray-900">Hoja de Ruta AJUPTEL</h1>
+    <div className="max-w-5xl mx-auto space-y-8">
+      
+      {/* Contenedor Unificado para agrupar la flecha y evitar la separación forzada */}
+      <div className="space-y-4">
+        {/* Botón Volver al Dashboard Principal */}
+        <div>
+          <Link 
+            href="/dashboard" 
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 uppercase tracking-wider transition-colors group"
+          >
+            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+            Volver al Dashboard
+          </Link>
+        </div>
+
+        {/* Encabezado con Cápsula de Estilo e Icono Integrado */}
+        <div className="text-left space-y-3">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full shadow-sm">
+              <Map size={14} className="stroke-[2.5]" />
+              Hoja de Ruta
+            </span>
+          </div>
+
+          <div className="space-y-2">
+            <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+              Hoja de Ruta AJUPTEL
+            </h1>
+            <div className="h-1 w-16 bg-blue-600 rounded-full" />
+          </div>
+          
+          <p className="text-sm text-slate-500 max-w-2xl pt-1 leading-relaxed font-medium">
+            Estado actual del ciclo de vida del proyecto de transformación digital.
+          </p>
+        </div>
       </div>
       
-      <p className="text-gray-600 mb-10 text-lg">
-        Estado actual del ciclo de vida del proyecto de transformación digital.
-      </p>
-
-      {/* Grid de Fases */}
+      {/* Grid de Fases (Tus tarjetas originales se mantienen intactas) */}
       <div className="grid gap-8">
         {fasesProyecto.map((fase) => (
           <div 
@@ -51,7 +79,7 @@ export default function DashboardHome() {
               </div>
             </div>
             
-            {/* Lista de Hitos */}
+            {/* Lista de Hitos (Intacta) */}
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 border-t pt-4">
               {fase.hitos.map((hito, index) => (
                 <div key={index} className="flex items-center gap-2 text-sm font-medium text-gray-500">
@@ -64,7 +92,7 @@ export default function DashboardHome() {
         ))}
       </div>
 
-      {/* Sección Jira - Pie de página */}
+      {/* Sección Jira - Pie de página (Intacta) */}
       <div className="mt-12 p-6 bg-slate-900 text-white rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
           <h3 className="text-xl font-bold text-blue-400">Planificación en Jira</h3>

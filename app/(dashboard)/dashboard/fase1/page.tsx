@@ -1,6 +1,7 @@
 "use client"
+
 import { useState, useEffect, useCallback, useRef } from "react"
-import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft } from "lucide-react"
+import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, FolderOpen } from "lucide-react"
 import Link from "next/link"
 import { supabase } from "@/lib/supabase"
 
@@ -92,7 +93,7 @@ export default function FaseUnoPage() {
     const encontradas: string[] = []
     documentos.forEach(doc => {
       if (texto.includes(`[${doc.nombre}]:`)) {
-        encontradas.push(doc.nombre)
+        found: encontradas.push(doc.nombre)
       }
     })
     return encontradas.length > 0 ? encontradas : ["General / Fase I"]
@@ -126,38 +127,51 @@ export default function FaseUnoPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-8 p-6">
+    <div className="p-8 max-w-7xl mx-auto bg-slate-50 min-h-screen space-y-6">
       
-      {/* BOTÓN ENLACE DE RETORNO AL DASHBOARD DE FASES */}
+      {/* Botón Enlace de Retorno al Dashboard de Fases */}
       <div>
         <Link 
           href="/dashboard/fases" 
-          className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider hover:text-blue-600 transition-colors group"
+          className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 uppercase tracking-wider transition-colors group"
         >
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          <span>Volver a Fases</span>
+          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+          Volver a Fases
         </Link>
       </div>
 
-      <div>
-        <h2 className="text-4xl font-black italic text-slate-900 uppercase">Fase I: Inicio</h2>
-        <p className="text-slate-500 mt-2 font-medium">Documentación técnica inicial de AJUPTEL.</p>
+      {/* Encabezado Unificado Corporativo */}
+      <div className="space-y-2 mb-10">
+        <div className="flex items-center gap-3">
+          {/* Icono corporativo con fondo suave */}
+          <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
+            <FolderOpen size={24} className="stroke-[2.5]" />
+          </div>
+          <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+            Fase I: Inicio
+          </h1>
+        </div>
+        {/* Línea azul característica del sistema */}
+        <div className="h-1 w-16 bg-blue-600 rounded-full" />
+        <p className="text-sm text-slate-500 max-w-3xl pt-1 leading-relaxed font-medium">
+          Artefactos de inicio, fundamentación y documentación técnica inicial de AJUPTEL Carabobo.
+        </p>
       </div>
 
       {/* GRID DOCUMENTOS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {documentos.map((doc) => (
-          <div key={doc.id} className="bg-white p-6 border border-slate-100 shadow-sm rounded-2xl flex items-center justify-between group">
+          <div key={doc.id} className="bg-white p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow rounded-xl flex items-center justify-between group">
             <div className="flex items-center gap-4">
-              <div className="h-12 w-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+              <div className="h-12 w-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
                 <FileText size={24} />
               </div>
               <div>
-                <p className="font-bold text-slate-800 text-sm md:text-base">{doc.nombre}</p>
-                <p className="text-[10px] text-slate-400 font-bold uppercase mt-0.5">{doc.tipo}</p>
+                <p className="font-bold text-slate-800 text-sm md:text-base leading-snug">{doc.nombre}</p>
+                <p className="text-[10px] text-slate-400 font-bold uppercase mt-1 tracking-wider">{doc.tipo}</p>
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 shrink-0">
               <Link href={`/visor/${doc.slug}`} className="p-3 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-colors">
                 <Eye size={18} />
               </Link>
@@ -170,10 +184,10 @@ export default function FaseUnoPage() {
       </div>
 
       {/* PANEL DEL PROFESOR */}
-      <div className="mt-12 bg-slate-900 rounded-[2.5rem] p-8 text-white shadow-2xl space-y-6">
+      <div className="mt-12 bg-slate-900 rounded-4xl p-8 text-white shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <UserCheck className="text-blue-400" size={24} />
-          <h3 className="text-xl font-bold">Retroalimentación del Profesor</h3>
+          <h3 className="text-lg font-bold uppercase tracking-tight">Retroalimentación del Profesor</h3>
         </div>
         
         {/* Selector de Inyección Directa */}
@@ -216,7 +230,7 @@ export default function FaseUnoPage() {
         </div>
 
         {/* HISTORIAL */}
-        <div className="space-y-4 pt-4 border-t border-slate-800">
+        <div className="space-y-4 pt-6 border-t border-slate-800">
           <h4 className="flex items-center gap-2 text-[10px] font-black text-slate-500 uppercase tracking-widest">
             <History size={14} /> Historial de Evolución
           </h4>
@@ -233,7 +247,7 @@ export default function FaseUnoPage() {
               const etiquetasAmostrar = obtenerEtiquetasDeTexto(item.texto)
 
               return (
-                <div key={item.id} className="bg-slate-800/30 border border-slate-700/50 p-5 rounded-2xl transition-all hover:border-blue-500/30">
+                <div key={item.id} className="bg-slate-800/30 border border-slate-700/50 p-5 rounded-xl transition-all hover:border-blue-500/30">
                   <div className="flex flex-col sm:flex-row sm:justify-between gap-2 mb-3">
                     <div className="flex flex-wrap items-center gap-1.5">
                       <span className="bg-blue-600 text-[10px] px-2 py-0.5 rounded-lg font-black text-white shadow-sm mr-1">

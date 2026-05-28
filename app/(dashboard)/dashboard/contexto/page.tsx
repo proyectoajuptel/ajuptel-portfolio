@@ -2,23 +2,49 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Building2, Target, ShieldAlert, Cpu, Users2, BarChart3, MapPin } from "lucide-react";
+import Link from 'next/link';
+import { Building2, Target, ShieldAlert, Cpu, Users2, BarChart3, MapPin, ArrowLeft } from "lucide-react";
 
 export default function ContextoProyectoPage() {
   return (
-    <div className="p-8 max-w-7xl mx-auto bg-slate-50 min-h-screen">
-      {/* Encabezado limpio y profesional */}
-      <header className="mb-10">
-        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-          Contexto del Proyecto
-        </h1>
-        <div className="h-1 w-20 bg-blue-600 mt-2 rounded-full"></div>
-        <p className="text-slate-500 mt-4 text-lg max-w-3xl">
-          Análisis del entorno organizacional y fundamentación estratégica para la transformación digital de AJUPTEL Carabobo.
-        </p>
-      </header>
+    <div className="max-w-7xl mx-auto space-y-8">
+      
+      {/* Contenedor Unificado para agrupar la flecha y evitar la separación forzada */}
+      <div className="space-y-4">
+        {/* Botón Volver al Dashboard Principal */}
+        <div>
+          <Link 
+            href="/dashboard" 
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 uppercase tracking-wider transition-colors group"
+          >
+            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+            Volver al Dashboard
+          </Link>
+        </div>
 
-      {/* Grid Principal de Tarjetas (Fila superior e intermedia) */}
+        {/* Encabezado Unificado con Estilo de Píldora Superior Compacta */}
+        <div className="text-left space-y-3">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full shadow-sm">
+              <Building2 size={14} className="stroke-[2.5]" />
+              Contexto Institucional
+            </span>
+          </div>
+          
+          <div className="space-y-2">
+            <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+              Contexto del Proyecto
+            </h1>
+            <div className="h-1 w-16 bg-blue-600 rounded-full" />
+          </div>
+
+          <p className="text-sm text-slate-500 max-w-3xl leading-relaxed font-medium">
+            Análisis del entorno organizacional y fundamentación estratégica para la transformación digital de AJUPTEL Carabobo.
+          </p>
+        </div>
+      </div>
+
+      {/* Grid Principal de Tarjetas (Fila superior e intermedia - Intactas) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         {/* Tarjeta 1: La Organización */}
@@ -56,7 +82,7 @@ export default function ContextoProyectoPage() {
             <h2 className="font-bold text-slate-800 uppercase text-sm tracking-wider">Propósito</h2>
           </div>
           <p className="text-slate-600 text-sm leading-relaxed">
-            Implementar un <span className="font-bold text-slate-900">Sistema Integral Digital</span> que centralice la gestión de asociados y beneficios, garantizando la integridad de los datos y mejorando la calidad de respuesta administrativa en un <span className="text-green-600 font-bold">90%</span>.
+            Implementar un <span className="font-bold text-slate-900">Sistema Integral Digital</span> que centralice la gestión de asociados y benefits, garantizando la integridad de los datos y mejorando la calidad de respuesta administrativa en un <span className="text-green-600 font-bold">90%</span>.
           </p>
         </div>
 
@@ -103,7 +129,7 @@ export default function ContextoProyectoPage() {
 
       </div>
 
-      {/* NUEVA SECCIÓN: Ubicación Geográfica e Infraestructura Física */}
+      {/* Sección: Ubicación Geográfica */}
       <section className="mt-10">
         <div className="flex items-center gap-3 mb-6">
           <MapPin className="text-blue-600" size={24} />
@@ -111,7 +137,6 @@ export default function ContextoProyectoPage() {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Detalles de la Dirección */}
           <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded">
@@ -143,7 +168,6 @@ export default function ContextoProyectoPage() {
             </div>
           </div>
 
-          {/* Imagen de la Fachada (casa ajuptel.svg) */}
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center justify-center">
             <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2 self-start pl-2">
               Fachada de la Asociación
@@ -159,7 +183,6 @@ export default function ContextoProyectoPage() {
             </div>
           </div>
 
-          {/* Imagen del Mapa Georreferenciado (Mapa ajuptel.svg) */}
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col items-center justify-center">
             <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2 self-start pl-2">
               Ubicación en Mapa
@@ -177,7 +200,7 @@ export default function ContextoProyectoPage() {
         </div>
       </section>
 
-      {/* Sección de Interesados Clave - Estilo Tabla Profesional */}
+      {/* Sección de Interesados Clave - Tabla Profesional */}
       <section className="mt-10">
         <div className="flex items-center gap-3 mb-6">
           <Users2 className="text-blue-600" size={24} />

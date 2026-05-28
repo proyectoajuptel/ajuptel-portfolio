@@ -5,7 +5,8 @@ import {
   Users, 
   BookOpen, 
   Milestone, 
-  ArrowRight 
+  ArrowRight,
+  LayoutDashboard
 } from 'lucide-react';
 
 export default function MainDashboard() {
@@ -15,7 +16,6 @@ export default function MainDashboard() {
       description: "Información institucional de AJUPTEL, objetivos del sistema y alcance sociotecnológico.",
       icon: BookOpen,
       url: "/dashboard/contexto",
-      // Juego visual: Borde verde y sombra esmeralda suave al hacer hover
       color: "hover:border-emerald-500 hover:shadow-xl hover:shadow-emerald-100/50",
       iconColor: "text-emerald-600 bg-emerald-50 border-emerald-200",
       badge: "bg-emerald-50 text-emerald-700 border-emerald-200"
@@ -25,7 +25,6 @@ export default function MainDashboard() {
       description: "Roles de Scrum, investigadores y colaboradores asignados a la transformación digital.",
       icon: Users,
       url: "/dashboard/equipo",
-      // Juego visual: Borde morado y sombra violeta al hacer hover
       color: "hover:border-purple-500 hover:shadow-xl hover:shadow-purple-100/50",
       iconColor: "text-purple-600 bg-purple-50 border-purple-200",
       badge: "bg-purple-50 text-purple-700 border-purple-200"
@@ -35,7 +34,6 @@ export default function MainDashboard() {
       description: "Cronograma de hitos, planificación de Sprints y visualización del avance general en Jira.",
       icon: Milestone, 
       url: "/dashboard/hoja", 
-      // Juego visual: Borde ámbar y sombra cálida al hacer hover
       color: "hover:border-amber-500 hover:shadow-xl hover:shadow-amber-100/50",
       iconColor: "text-amber-600 bg-amber-50 border-amber-200",
       badge: "bg-amber-50 text-amber-700 border-amber-200"
@@ -45,7 +43,6 @@ export default function MainDashboard() {
       description: "Ciclo de vida metodológico. Accede a los entregables de Análisis, Diseño, Ejecución y Cierre.",
       icon: FolderOpen,
       url: "/dashboard/fases", 
-      // Juego visual: Borde azul y sombra azulada al hacer hover
       color: "hover:border-blue-500 hover:shadow-xl hover:shadow-blue-100/50",
       iconColor: "text-blue-600 bg-blue-50 border-blue-200",
       badge: "bg-blue-50 text-blue-700 border-blue-200"
@@ -53,18 +50,27 @@ export default function MainDashboard() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-slate-50 text-slate-800 flex flex-col justify-center px-6 py-12 md:px-12">
-      <div className="max-w-5xl mx-auto w-full">
+    <div className="w-full min-h-screen bg-slate-50 text-slate-800 flex flex-col justify-center px-6 py-8 md:px-12">
+      <div className="max-w-5xl mx-auto w-full space-y-6">
         
-        {/* Encabezado del Dashboard */}
-        <div className="mb-10 text-left">
-          <span className="text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-200 px-3 py-1 rounded-full shadow-sm">
-            Panel de Control General
-          </span>
-          <h1 className="text-3xl md:text-4xl font-black mt-4 text-slate-900 tracking-tight">
-            Módulos del Portafolio
-          </h1>
-          <p className="text-slate-500 mt-2 text-sm md:text-base max-w-2xl leading-relaxed">
+        {/* Encabezado del Dashboard (Tipografía Unificada) */}
+        <div className="mb-6 text-left space-y-3">
+          <div>
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full shadow-sm">
+              <LayoutDashboard size={14} className="stroke-[2.5]" />
+              Panel de Control General
+            </span>
+          </div>
+          
+          <div className="space-y-2">
+            {/* Tamaño idéntico a las páginas internas: text-2xl md:text-3xl */}
+            <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+              Módulos del Portafolio
+            </h1>
+            <div className="h-1 w-16 bg-blue-600 rounded-full" />
+          </div>
+
+          <p className="text-slate-500 text-sm max-w-2xl leading-relaxed font-medium">
             Gestiona y audita la documentación del proyecto de Transformación Digital para AJUPTEL.
           </p>
         </div>
