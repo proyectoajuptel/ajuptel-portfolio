@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect, useCallback, useRef } from "react"
-import { FileText, Download, Eye, Save, History, UserCheck, Loader2 } from "lucide-react"
+import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { supabase } from "@/lib/supabase"
 
@@ -57,22 +57,18 @@ export default function FaseUnoPage() {
     cargarNotas()
   }, [cargarNotas])
 
-  // Función mágica que inserta o remueve la etiqueta directamente en el texto
   const alternarEtiquetaEnTexto = (nombreDoc: string) => {
     const formatoEtiqueta = `[${nombreDoc}]: `
     
     if (nuevaNota.includes(formatoEtiqueta)) {
-      // Si ya existe la etiqueta, la removemos limpiamente junto con saltos de línea extra
       const textoLimpio = nuevaNota.replace(formatoEtiqueta, "").trim()
       setNuevaNota(textoLimpio)
     } else {
-      // Si no existe, calculamos la posición del cursor para meterla ahí mismo
       const textarea = textareaRef.current
       if (textarea) {
         const inicio = textarea.selectionStart
         const fin = textarea.selectionEnd
         
-        // Estructuramos agregando un salto de línea si ya hay texto previo
         const prefijo = nuevaNota.length > 0 && inicio > 0 ? "\n" : ""
         const nuevoTexto = 
           nuevaNota.substring(0, inicio) + 
@@ -81,20 +77,17 @@ export default function FaseUnoPage() {
         
         setNuevaNota(nuevoTexto)
         
-        // Devolvemos el foco al textarea de inmediato para que siga escribiendo
         setTimeout(() => {
           textarea.focus()
           const nuevaPosicion = inicio + prefijo.length + formatoEtiqueta.length
           textarea.setSelectionRange(nuevaPosicion, nuevaPosicion)
         }, 50)
       } else {
-        // En caso de respaldo si falla el ref
         setNuevaNota(prev => prev + (prev.length > 0 ? "\n" : "") + formatoEtiqueta)
       }
     }
   }
 
-  // Función para escanear el texto de la BD y extraer dinámicamente qué badges mostrar
   const obtenerEtiquetasDeTexto = (texto: string) => {
     const encontradas: string[] = []
     documentos.forEach(doc => {
@@ -108,7 +101,6 @@ export default function FaseUnoPage() {
   const guardarRevision = async () => {
     if (!nuevaNota.trim()) return
     
-    // Extraemos las etiquetas que se usaron en el texto para registrarlas ordenadamente en la columna 'documento'
     const etiquetasUsadas = documentos
       .filter(doc => nuevaNota.includes(`[${doc.nombre}]:`))
       .map(doc => doc.nombre)
@@ -135,8 +127,20 @@ export default function FaseUnoPage() {
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 p-6">
+      
+      {/* BOTÓN ENLACE DE RETORNO AL DASHBOARD DE FASES */}
       <div>
-        <h2 className="text-4xl font-black italic text-slate-900 uppercase">Fase I: Análisis</h2>
+        <Link 
+          href="/dashboard/fases" 
+          className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider hover:text-blue-600 transition-colors group"
+        >
+          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+          <span>Volver a Fases</span>
+        </Link>
+      </div>
+
+      <div>
+        <h2 className="text-4xl font-black italic text-slate-900 uppercase">Fase I: Inicio</h2>
         <p className="text-slate-500 mt-2 font-medium">Documentación técnica inicial de AJUPTEL.</p>
       </div>
 
@@ -226,8 +230,6 @@ export default function FaseUnoPage() {
           ) : (
             historial.map((item, index) => {
               const numeroVersion = historial.length - index;
-              
-              // Escaneamos el texto real guardado para saber qué badges prender en la tarjeta
               const etiquetasAmostrar = obtenerEtiquetasDeTexto(item.texto)
 
               return (
@@ -255,7 +257,6 @@ export default function FaseUnoPage() {
                       {new Date(item.fecha).toLocaleString()}
                     </span>
                   </div>
-                  {/* Se mantiene el formato con saltos de línea para que las notas multi-documento se lean perfecto */}
                   <p className="text-slate-300 text-sm font-medium leading-relaxed whitespace-pre-wrap font-mono bg-slate-900/20 p-3 rounded-xl border border-slate-800/40">
                     {item.texto}
                   </p>

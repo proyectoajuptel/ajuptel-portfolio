@@ -15,12 +15,13 @@ export default function FasesScrumPage() {
   const fasesScrum = [
     {
       title: "Fase 1: Inicio",
-      description: "Creación de la visión del proyecto, identificación del Scrum Master y Stakeholders, y desarrollo del Product Backlog inicial.",
+      description: "Creación del documento inicial, caso de negocio, lean inception, de la visión del proyecto, identificación del Scrum Master y Stakeholders, y desarrollo del Product Backlog inicial.",
       icon: PlayCircle,
       url: "/dashboard/fase1",
       color: "hover:border-blue-500 hover:shadow-blue-100/50",
       iconColor: "text-blue-600 bg-blue-50 border-blue-200",
-      badge: "Activo"
+      badge: "Activo",
+      enDesarrollo: false
     },
     {
       title: "Fase 2: Estimación y Planificación",
@@ -29,7 +30,8 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase2",
       color: "hover:border-purple-500 hover:shadow-purple-100/50",
       iconColor: "text-purple-600 bg-purple-50 border-purple-200",
-      badge: "En Proceso"
+      badge: "En Desarrollo",
+      enDesarrollo: true
     },
     {
       title: "Fase 3: Implementación",
@@ -38,7 +40,8 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase3",
       color: "hover:border-indigo-500 hover:shadow-indigo-100/50",
       iconColor: "text-indigo-600 bg-indigo-50 border-indigo-200",
-      badge: "En Proceso"
+      badge: "En Desarrollo",
+      enDesarrollo: true
     },
     {
       title: "Fase 4: Revisión y Retrospectiva",
@@ -47,7 +50,8 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase4",
       color: "hover:border-amber-500 hover:shadow-amber-100/50",
       iconColor: "text-amber-600 bg-amber-50 border-amber-200",
-      badge: "Pendiente"
+      badge: "En Desarrollo",
+      enDesarrollo: true
     },
     {
       title: "Fase 5: Lanzamiento",
@@ -56,7 +60,8 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase5",
       color: "hover:border-emerald-500 hover:shadow-emerald-100/50",
       iconColor: "text-emerald-600 bg-emerald-50 border-emerald-200",
-      badge: "Pendiente"
+      badge: "En Desarrollo",
+      enDesarrollo: true
     }
   ];
 
@@ -91,8 +96,8 @@ export default function FasesScrumPage() {
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className={`text-[10px] font-bold uppercase tracking-wider border px-2.5 py-0.5 rounded-md ${
-                      fase.badge === 'Finalizado' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
-                      fase.badge === 'En Proceso' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                      fase.badge === 'Activo' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                      fase.badge === 'En Desarrollo' ? 'bg-amber-50 text-amber-700 border-amber-200' :
                       'bg-slate-50 text-slate-600 border-slate-200'
                     }`}>
                       {fase.badge}
@@ -107,7 +112,7 @@ export default function FasesScrumPage() {
                 </div>
 
                 <div className="mt-6 flex items-center text-xs font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
-                  <span>Ver artefactos</span>
+                  <span>{fase.enDesarrollo ? "Ver estado" : "Ver artefactos"}</span>
                   <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
