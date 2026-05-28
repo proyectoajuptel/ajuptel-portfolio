@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css"; 
 import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer"; // <-- Importación correcta del Footer
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
@@ -34,15 +35,21 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-linear-to-br from-slate-50 via-white to-blue-50 text-slate-900 selection:bg-blue-100">
         <SidebarProvider>
           <TooltipProvider>
-            {/* El Navbar queda fijo arriba */}
+            
+            {/* El Navbar queda fijo en la parte superior */}
             <Navbar />
             
-            {/* Contenedor principal con padding para que el Navbar no tape el contenido */}
-            <main className="flex-1 pt-20">
-              {children}
+            {/* Contenedor principal estructurado en flex-col */}
+            <main className="flex-1 pt-20 flex flex-col w-full">
+              {/* Este div flex-1 empuja el footer hacia abajo si hay poco contenido */}
+              <div className="flex-1 w-full">
+                {children}
+              </div>
+              
+              {/* Pie de página académico unificado */}
+              <Footer />
             </main>
 
-            {/* Aquí es donde se renderizará el Sidebar cuando lo llames */}
           </TooltipProvider>
         </SidebarProvider>
       </body>
