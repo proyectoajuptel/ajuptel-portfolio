@@ -4,7 +4,7 @@ import { useRouter, useParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 const DOCS_MAP: Record<string, { title: string; file: string }> = {
-  // Añadimos la clave EXACTA que sale en el error 404
+  // --- FASE 1 ---
   "caso_negocio_ajuptel": { 
     title: "Caso de Negocio", 
     file: "/docs/fase1/caso_negocio_ajuptel.pdf" 
@@ -60,6 +60,16 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
   "lean_inception_ajuptel": { 
     title: "Lean Inception", 
     file: "/docs/fase1/lean_inception_ajuptel.pdf" 
+  },
+
+  // --- FASE 2 ---
+  "Fase2-SprintBacklogAjuptel": {
+    title: "2.1. Sprint Backlog",
+    file: "/docs/fase2/Fase2-SprintBacklogAjuptel.xlsx"
+  },
+  "Fase2-Scrum-GestionProyectoAjuptel": {
+    title: "2.2. Gestión Ágil - Marco Scrum",
+    file: "/docs/fase2/Fase2-Scrum-GestionProyectoAjuptel.xlsx"
   }
 };
 
@@ -67,19 +77,33 @@ export default function DocumentVisor() {
   const router = useRouter();
   const params = useParams();
   
-  // Limpiamos el slug por si llega con espacios
+  // Limpiamos el slug por si llega con espacios o formato extraño
   const slug = (params?.slug as string)?.trim();
   const doc = DOCS_MAP[slug];
 
   if (!doc) {
     return (
-      <div className="p-20 text-center">
-        <h2 className="text-2xl font-bold">Documento no encontrado</h2>
-        <p className="text-slate-500">El slug &quot;{slug}&quot; no coincide con ningún archivo.</p>
-        <button onClick={() => router.back()} className="text-blue-600 underline mt-4">Volver</button>
+      <div className="p-10 max-w-xl mx-auto text-center bg-white rounded-2xl shadow-sm border mt-10">
+        <h2 className="text-2xl font-bold text-red-600 mb-2">Documento no encontrado</h2>
+        <p className="text-slate-600 mb-4">
+          El navegador intentó buscar el slug: <code className="bg-slate-100 px-2 py-1 rounded text-slate-800 font-mono">&quot;{slug}&quot;</code>, pero no coincide exactamente con ninguna clave del sistema.
+        </p>
+        <div className="bg-slate-50 p-4 rounded-xl text-left text-xs mb-6 border">
+          <p className="font-bold text-slate-700 mb-1">Claves válidas configuradas:</p>
+          <ul className="list-disc pl-4 space-y-1 text-slate-500 font-mono">
+            {Object.keys(DOCS_MAP).map((key) => (
+              <li key={key}>{key}</li>
+            ))}
+          </ul>
+        </div>
+        <button onClick={() => router.back()} className="px-5 py-2 bg-slate-900 text-white rounded-xl text-sm font-bold">
+          Volver atrás
+        </button>
       </div>
     );
   }
+
+  const esXlsx = doc.file.toLowerCase().endsWith(".xlsx");
 
   return (
     <div className="flex flex-col h-[calc(100vh-100px)] bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
@@ -91,12 +115,21 @@ export default function DocumentVisor() {
           <span className="font-bold text-slate-900">{doc.title}</span>
         </div>
         <a href={doc.file} download className="px-4 py-2 bg-slate-900 text-white rounded-xl text-sm font-bold">
-          Descargar PDF
+          {esXlsx ? "Descargar Excel" : "Descargar PDF"}
         </a>
       </div>
-      <div className="flex-1 bg-slate-500 p-4">
-        {/* Usamos el objeto doc.file que ya tiene la ruta correcta */}
-        <iframe src={doc.file} className="w-full h-full rounded-lg bg-white" title={doc.title} />
+      <div className="flex-1 bg-slate-500 p-4 flex flex-col">
+        {esXlsx ? (
+          <div className="w-full h-full rounded-lg bg-white p-6 flex flex-col items-center justify-center text-center">
+            <p className="text-lg font-bold text-slate-800 mb-2">Este documento es una hoja de cálculo (.xlsx)</p>
+            <p className="text-sm text-slate-500 mb-4">Los archivos de Excel se descargan directamente para visualizarse con todas sus fórmulas y formato original.</p>
+            <a href={doc.file} download className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold shadow-md transition-all">
+              Descargar y Abrir Excel
+            </a>
+          </div>
+        ) : (
+          <iframe src={doc.file} className="w-full h-full rounded-lg bg-white" title={doc.title} />
+        )}
       </div>
     </div>
   );

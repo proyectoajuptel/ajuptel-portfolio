@@ -77,7 +77,7 @@ const navigation: NavGroup[] = [
         url: "/dashboard/fase1", 
         icon: SearchCode,
         isActive: true,
-        status: "Activo",
+        status: "Finalizado",
         isBlocked: false,
         /*subItems: [
           { title: "Caso de Negocio", url: "/dashboard/fase1/caso-negocio" },
@@ -85,10 +85,10 @@ const navigation: NavGroup[] = [
           { title: "Product Backlog", url: "/dashboard/fase1/backlog" },
         ]*/
       },
-      { title: "Fase II: Estimación y Planificación", url: "#", icon: Milestone, status: "En Proceso", isBlocked: true },
-      { title: "Fase III: Implementación", url: "#", icon: Cpu, status: "Por iniciar", isBlocked: true },
-      { title: "Fase IV: Revisión y Retrospectiva", url: "#", icon: FileSearch, status: "Por iniciar", isBlocked: true },
-      { title: "Fase V: Lanzamiento", url: "#", icon: Rocket, status: "Por iniciar", isBlocked: true },
+      { title: "Fase II: Estimación y Planificación", url: "/dashboard/fase2", icon: Milestone, status: "Finalizado", isBlocked: false },
+      { title: "Fase III: Implementación", url: "/dashboard/fase3", icon: Cpu, status: "Finalizado", isBlocked: false },
+      { title: "Fase IV: Revisión y Retrospectiva", url: "/dashboard/fase4", icon: FileSearch, status: "Finalizado", isBlocked: false },
+      { title: "Fase V: Lanzamiento", url: "/dashboard/fase5", icon: Rocket, status: "Finalizado", isBlocked: false },
     ],
   },
   {

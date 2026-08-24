@@ -20,8 +20,7 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase1",
       color: "hover:border-blue-500 hover:shadow-blue-100/50",
       iconColor: "text-blue-600 bg-blue-50 border-blue-200",
-      badge: "Activo",
-      enDesarrollo: false
+      badge: "Finalizado",
     },
     {
       title: "Fase 2: Estimación y Planificación",
@@ -30,8 +29,7 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase2",
       color: "hover:border-purple-500 hover:shadow-purple-100/50",
       iconColor: "text-purple-600 bg-purple-50 border-purple-200",
-      badge: "En Desarrollo",
-      enDesarrollo: true
+      badge: "Finalizado",
     },
     {
       title: "Fase 3: Implementación",
@@ -40,8 +38,7 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase3",
       color: "hover:border-indigo-500 hover:shadow-indigo-100/50",
       iconColor: "text-indigo-600 bg-indigo-50 border-indigo-200",
-      badge: "En Desarrollo",
-      enDesarrollo: true
+      badge: "Finalizado",
     },
     {
       title: "Fase 4: Revisión y Retrospectiva",
@@ -50,8 +47,7 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase4",
       color: "hover:border-amber-500 hover:shadow-amber-100/50",
       iconColor: "text-amber-600 bg-amber-50 border-amber-200",
-      badge: "En Desarrollo",
-      enDesarrollo: true
+      badge: "Finalizado",
     },
     {
       title: "Fase 5: Lanzamiento",
@@ -60,8 +56,7 @@ export default function FasesScrumPage() {
       url: "/dashboard/fase5",
       color: "hover:border-emerald-500 hover:shadow-emerald-100/50",
       iconColor: "text-emerald-600 bg-emerald-50 border-emerald-200",
-      badge: "En Desarrollo",
-      enDesarrollo: true
+      badge: "Finalizado",
     }
   ];
 
@@ -95,11 +90,8 @@ export default function FasesScrumPage() {
                     <div className={`p-2.5 rounded-xl border ${fase.iconColor}`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className={`text-[10px] font-bold uppercase tracking-wider border px-2.5 py-0.5 rounded-md ${
-                      fase.badge === 'Activo' ? 'bg-blue-50 text-blue-700 border-blue-200' :
-                      fase.badge === 'En Desarrollo' ? 'bg-amber-50 text-amber-700 border-amber-200' :
-                      'bg-slate-50 text-slate-600 border-slate-200'
-                    }`}>
+                    {/* Etiqueta Verde Brillante */}
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider border px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 border-emerald-300 shadow-xs">
                       {fase.badge}
                     </span>
                   </div>
@@ -112,7 +104,7 @@ export default function FasesScrumPage() {
                 </div>
 
                 <div className="mt-6 flex items-center text-xs font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
-                  <span>{fase.enDesarrollo ? "Ver estado" : "Ver artefactos"}</span>
+                  <span>Ver artefactos</span>
                   <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>

@@ -2,7 +2,7 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, FolderOpen, Sparkles } from "lucide-react"
+import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, FileSearch, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { supabase } from "@/lib/supabase"
 
@@ -16,24 +16,15 @@ interface Revision {
   tipo_comentario?: string
 }
 
-export default function FaseUnoPage() {
+export default function FaseCuatroPage() {
+  // Lista de documentos y artefactos correspondientes a la Fase IV
   const documentos = [
-    { id: "p1-init-1", nombre: "0. Documento Inicial", slug: "documento_inicial_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/documento_inicial_ajuptel.docx" },
-    { id: "p1-init-2", nombre: "0. Lean Inception", slug: "lean_inception_ajuptel", tipo: "PDF,PPTX", linkWord: "/docs/fase1/lean_inception_ajuptel.pptx" },
-    { id: "p1-1", nombre: "1.1. Caso de Negocio", slug: "caso_negocio_ajuptel", tipo: "WORD", linkWord: "/docs/fase1/caso_negocio_ajuptel.docx" },
-    { id: "p1-2", nombre: "1.2. Acta de Constitución", slug: "ACTA_DE_CONSTITUCION_AJUPTEL", tipo: "PDF,WORD", linkWord: "/docs/fase1/ACTA_DE_CONSTITUCION_AJUPTEL.docx" },
-    { id: "p1-3", nombre: "1.3. Registro de la Visión", slug: "vision_proyecto_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/vision_proyecto_ajuptel.docx" },
-    { id: "p1-4", nombre: "1.4. Matriz de Poder", slug: "matriz_poder_interes_ajuptel", tipo: "PDF,DOC", linkWord: "/docs/fase1/matriz_poder_interes_ajuptel.docx" },
-    { id: "p1-5", nombre: "1.5. Registro de Interesados", slug: "registro_interesados_ajuptel", tipo: "EXCEL", linkWord: "/docs/fase1/registro_interesados_ajuptel.doc" },
-    { id: "p1-6", nombre: "1.6. Equipo Scrum", slug: "eleccion_equipo_scrum_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/eleccion_equipo_scrum_ajuptel.docx" },
-    { id: "p1-7", nombre: "1.7. Product Backlog", slug: "product_backlog_ajuptel", tipo: "PDF,XLSX", linkWord: "/docs/fase1/product_backlog_ajuptel.xlsx" },
-    { id: "p1-7a", nombre: "1.7.a. Información para Épicas ", slug: "epicas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/epicas_ajuptel.docx" },
-    { id: "p1-8", nombre: "1.8. Plan de Lanzamiento", slug: "release_plan_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/release_plan_ajuptel.docx" },
-    { id: "p1-9", nombre: "1.9. Arquitectura Inicial", slug: "arquitectura_4mas1_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/arquitectura_4mas1_ajuptel.docx" },
-    { id: "p1-10", nombre: "1.10. Plan de Trabajo", slug: "plan_trabajo_dev_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/plan_trabajo_dev_ajuptel.docx" },
-    { id: "p1-11", nombre: "1.11. Cronograma Detallado", slug: "cronograma_dev_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/cronograma_dev_ajuptel.docx" }
+    { id: "p4-1", nombre: "4.1. Acta de Revisión del Sprint", slug: "acta_revision_sprint_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/acta_revision_sprint_ajuptel.docx" },
+    { id: "p4-2", nombre: "4.2. Registro de Retrospectiva y Métricas", slug: "retrospectiva_metricas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/retrospectiva_metricas_ajuptel.docx" },
+    { id: "p4-3", nombre: "4.3. Informe de Pruebas y QA", slug: "informe_pruebas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/informe_pruebas_ajuptel.docx" }
   ]
 
+  // Lista de profesores disponibles para seleccionar
   const listaProfesores = [
     "Prof(a). Carol Armao",
     "Prof(a). María Dolores Espinoza",
@@ -56,7 +47,7 @@ export default function FaseUnoPage() {
       const { data, error } = await supabase
         .from('revisiones')
         .select('*')
-        .eq('fase', 'fase1')
+        .eq('fase', 'fase4')
         .order('fecha', { ascending: false })
       
       if (error) throw error
@@ -106,7 +97,7 @@ export default function FaseUnoPage() {
   const guardarRevision = async () => {
     if (!nuevaNota.trim()) return
     
-    let documentoColumna = "General / Fase I"
+    let documentoColumna = "General / Fase IV"
 
     if (tipoComentario === "especifico") {
       const etiquetasUsadas = documentos
@@ -117,14 +108,14 @@ export default function FaseUnoPage() {
         ? etiquetasUsadas.join(", ") 
         : "Documento Específico (Sin etiqueta)"
     } else {
-      documentoColumna = "Comentario General de la Fase I"
+      documentoColumna = "Comentario General de la Fase IV"
     }
 
     const { error } = await supabase
       .from('revisiones')
       .insert([{ 
         texto: nuevaNota, 
-        fase: 'fase1',
+        fase: 'fase4',
         documento: documentoColumna,
         profesor: profesorSeleccionado,
         tipo_comentario: tipoComentario
@@ -141,7 +132,7 @@ export default function FaseUnoPage() {
   return (
     <div className="p-8 max-w-7xl mx-auto bg-slate-50 min-h-screen space-y-6">
       
-      {/* Botón Enlace de Retorno al Dashboard de Fases */}
+      {/* Botón Enlace de Retorno */}
       <div>
         <Link 
           href="/dashboard/fases" 
@@ -159,15 +150,15 @@ export default function FaseUnoPage() {
         <div className="flex flex-col justify-center space-y-3">
           <div className="flex items-center gap-3">
             <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl">
-              <FolderOpen size={28} className="stroke-[2.5]" />
+              <FileSearch size={28} className="stroke-[2.5]" />
             </div>
             <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight uppercase">
-              Fase I: Inicio
+              Fase IV: Revisión y Retrospectiva
             </h1>
           </div>
           <div className="h-1.5 w-20 bg-blue-600 rounded-full" />
           <p className="text-sm md:text-base text-slate-500 max-w-2xl pt-1 leading-relaxed font-medium">
-            Artefactos de inicio, fundamentación y documentación técnica inicial de AJUPTEL Carabobo.
+            Evaluación de incrementos, control de calidad (QA), análisis de métricas y mejora continua del equipo en AJUPTEL Carabobo.
           </p>
         </div>
 
@@ -175,7 +166,7 @@ export default function FaseUnoPage() {
         <div className="w-full xl:w-105 bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 border-2 border-blue-500/40 rounded-3xl p-5 text-white shadow-xl flex items-center gap-5 relative overflow-hidden shrink-0">
           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
           
-          {/* Imagen más grande */}
+          {/* Imagen de KataleIA */}
           <div className="relative shrink-0">
             <div className="w-24 h-28 md:w-28 md:h-32 rounded-2xl bg-blue-600/20 border-2 border-blue-400/50 overflow-hidden shadow-lg flex items-center justify-center">
               <img 
@@ -194,7 +185,7 @@ export default function FaseUnoPage() {
               <span>KataleIA • Asistente IA</span>
             </div>
             <p className="text-slate-200 text-xs md:text-sm leading-relaxed font-semibold">
-              ¡Hola! Revisa los documentos de la Fase I y deja abajo tus observaciones y notas del jurado.
+              ¡Hola! Revisa los artefactos de revisión y QA de la Fase IV, y deja tus valoraciones abajo.
             </p>
           </div>
         </div>
@@ -241,18 +232,17 @@ export default function FaseUnoPage() {
             <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider block">
               Seleccionar Profesor / Jurado:
             </label>
-           <select  value={profesorSeleccionado}  onChange={(e) => {
-    console.log("Profesor cambiado a:", e.target.value);
-    setProfesorSeleccionado(e.target.value);
-  }}
-  className="w-full bg-slate-800 border border-slate-600 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
->
-  {listaProfesores.map((prof) => (
-    <option key={prof} value={prof}>
-      {prof}
-    </option>
-  ))}
-</select>
+            <select 
+              value={profesorSeleccionado} 
+              onChange={(e) => setProfesorSeleccionado(e.target.value)}
+              className="w-full bg-slate-800 border border-slate-600 rounded-xl px-3 py-2 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {listaProfesores.map((prof) => (
+                <option key={prof} value={prof}>
+                  {prof}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* 2. Selector de Tipo de Comentario */}
@@ -323,7 +313,7 @@ export default function FaseUnoPage() {
             onChange={(e) => setNuevaNota(e.target.value)}
             placeholder={tipoComentario === "especifico" 
               ? "Haz clic arriba en cualquier documento para etiquetarlo aquí directamente..." 
-              : "Escribe un comentario general sobre toda la Fase I..."
+              : "Escribe un comentario general sobre toda la Fase IV..."
             }
             className="w-full h-44 p-5 pb-14 bg-slate-800/50 border border-slate-700 rounded-2xl text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-slate-600 font-mono text-sm leading-relaxed"
           />
