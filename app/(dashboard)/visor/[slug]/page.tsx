@@ -65,12 +65,31 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
   // --- FASE 2 ---
   "Fase2-SprintBacklogAjuptel": {
     title: "2.1. Sprint Backlog",
-    file: "/docs/fase2/Fase2-SprintBacklogAjuptel.xlsx"
+    file: "/docs/fase2/Fase2-SprintBacklogAjuptel.pdf"
   },
   "Fase2-Scrum-GestionProyectoAjuptel": {
     title: "2.2. Gestión Ágil - Marco Scrum",
-    file: "/docs/fase2/Fase2-Scrum-GestionProyectoAjuptel.xlsx"
+    file: "/docs/fase2/Fase2-Scrum-GestionProyectoAjuptel.pdf"
+  },
+  "fase2_Reunion_sprint_planning_AJUPTEL": {
+    title: "2.3. Reuniones Sprint Planning - Marco Scrum",
+    file: "/docs/fase2/fase2_Reunion_sprint_planning_AJUPTEL.pdf"
+  },
+
+  // --- FASE 4 ---
+  "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {
+    title: "4.1. Acta Revisión y Retrospectiva del Proyecto",
+    file: "/docs/fase4/fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL.pdf"
   }
+
+  // --- FINALIZACIÓN ---
+ // "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {
+   // title: "4.1. Acta Revisión y Retrospectiva del Proyecto",
+   // file: "/docs/fase4/fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL.pdf"
+ // }
+
+
+
 };
 
 export default function DocumentVisor() {

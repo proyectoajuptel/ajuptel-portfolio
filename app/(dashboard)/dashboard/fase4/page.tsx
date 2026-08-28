@@ -19,9 +19,9 @@ interface Revision {
 export default function FaseCuatroPage() {
   // Lista de documentos y artefactos correspondientes a la Fase IV
   const documentos = [
-    { id: "p4-1", nombre: "4.1. Acta de Revisión del Sprint", slug: "acta_revision_sprint_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/acta_revision_sprint_ajuptel.docx" },
-    { id: "p4-2", nombre: "4.2. Registro de Retrospectiva y Métricas", slug: "retrospectiva_metricas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/retrospectiva_metricas_ajuptel.docx" },
-    { id: "p4-3", nombre: "4.3. Informe de Pruebas y QA", slug: "informe_pruebas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/informe_pruebas_ajuptel.docx" }
+    { id: "p4-1", nombre: "4.1. Acta Revisión y Lecciones Aprendidas del Proyecto", slug: "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL", tipo: "PDF,WORD", linkWord: "/docs/fase4/fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL.docx" },
+   // { id: "p4-2", nombre: "4.2. Registro de Retrospectiva y Métricas", slug: "retrospectiva_metricas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/retrospectiva_metricas_ajuptel.docx" },
+    //{ id: "p4-3", nombre: "4.3. Informe de Pruebas y QA", slug: "informe_pruebas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase4/informe_pruebas_ajuptel.docx" }
   ]
 
   // Lista de profesores disponibles para seleccionar

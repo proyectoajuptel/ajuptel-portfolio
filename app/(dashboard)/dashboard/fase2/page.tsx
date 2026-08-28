@@ -19,8 +19,9 @@ interface Revision {
 export default function FaseDosPage() {
   // Lista con los documentos específicos de la Fase 2
   const documentos = [
-    { id: "p2-1", nombre: "2.1. Sprint Backlog", slug: "Fase2-SprintBacklogAjuptel", tipo: "XLSX", linkWord: "/docs/fase2/Fase2-SprintBacklogAjuptel.xlsx" },
-    { id: "p2-2", nombre: "2.2. Gestión Ágil - Marco Scrum", slug: "Fase2-Scrum-GestionProyectoAjuptel", tipo: "XLSX", linkWord: "/docs/fase2/Fase2-Scrum-GestionProyectoAjuptel.xlsx" }
+    { id: "p2-1", nombre: "2.1. Sprint Backlog", slug: "Fase2-SprintBacklogAjuptel", tipo: "XLSX,PDF", linkWord: "/docs/fase2/Fase2-SprintBacklogAjuptel.xlsx" },
+    { id: "p2-2", nombre: "2.2. Gestión Ágil - Marco Scrum", slug: "Fase2-Scrum-GestionProyectoAjuptel", tipo: "XLSX,PDF", linkWord: "/docs/fase2/Fase2-Scrum-GestionProyectoAjuptel.xlsx" },
+    { id: "p2-3", nombre: "2.3. Reuniones Sprint Planning - Marco Scrum", slug: "fase2_Reunion_sprint_planning_AJUPTEL", tipo: "DOCX,PDF", linkWord: "/docs/fase2/fase2_Reunion_sprint_planning_AJUPTEL.docx" }
   ]
 
   // Lista de profesores disponibles para seleccionar
