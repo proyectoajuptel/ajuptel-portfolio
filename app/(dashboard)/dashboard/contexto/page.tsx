@@ -1,13 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Building2, Target, ShieldAlert, Cpu, Users2, BarChart3, MapPin, ArrowLeft } from "lucide-react";
+import { Building2, Target, ShieldAlert, Cpu, Users2, BarChart3, MapPin, ArrowLeft, Sparkles } from "lucide-react";
 
 export default function ContextoProyectoPage() {
   return (
-    <div className="max-w-7xl mx-auto space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       {/* Contenedor Unificado para agrupar la flecha y evitar la separación forzada */}
       <div className="space-y-4">
@@ -22,29 +23,60 @@ export default function ContextoProyectoPage() {
           </Link>
         </div>
 
-        {/* Encabezado Unificado con Estilo de Píldora Superior Compacta */}
-        <div className="text-left space-y-3">
-          <div>
-            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full shadow-sm">
-              <Building2 size={14} className="stroke-[2.5]" />
-              Contexto Institucional
-            </span>
-          </div>
+        {/* ENCABEZADO Y KATALEIA GRANDE A LA DERECHA */}
+        <div className="flex flex-col xl:flex-row justify-between items-stretch gap-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
           
-          <div className="space-y-2">
-            <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
-              Contexto del Proyecto
-            </h1>
-            <div className="h-1 w-16 bg-blue-600 rounded-full" />
+          {/* Título y descripción */}
+          <div className="text-left space-y-3 flex flex-col justify-center">
+            <div>
+              <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-full shadow-sm">
+                <Building2 size={14} className="stroke-[2.5]" />
+                Contexto Institucional
+              </span>
+            </div>
+            
+            <div className="space-y-2">
+              <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+                Contexto del Proyecto
+              </h1>
+              <div className="h-1 w-16 bg-blue-600 rounded-full" />
+            </div>
+
+            <p className="text-sm text-slate-500 max-w-2xl leading-relaxed font-medium">
+              Análisis del entorno organizacional y fundamentación estratégica para la transformación digital de AJUPTEL Carabobo.
+            </p>
           </div>
 
-          <p className="text-sm text-slate-500 max-w-3xl leading-relaxed font-medium">
-            Análisis del entorno organizacional y fundamentación estratégica para la transformación digital de AJUPTEL Carabobo.
-          </p>
+          {/* TARJETA DE KATALEIA GRANDE Y DESTACADA */}
+          <div className="w-full xl:w-105 bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 border-2 border-blue-500/40 rounded-3xl p-5 text-white shadow-xl flex items-center gap-5 relative overflow-hidden shrink-0">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="relative shrink-0">
+              <div className="w-24 h-28 md:w-28 md:h-32 rounded-2xl bg-blue-600/20 border-2 border-blue-400/50 overflow-hidden shadow-lg flex items-center justify-center">
+                <img 
+                  src="/imagenes/kataleia.png" 
+                  alt="KataleIA" 
+                  className="w-full h-full object-cover object-top scale-125 pt-2"
+                />
+              </div>
+              <span className="absolute -bottom-1 -right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-slate-900 animate-pulse" />
+            </div>
+
+            <div className="space-y-2 flex-1">
+              <div className="inline-flex items-center gap-1.5 bg-blue-600/30 text-blue-300 border border-blue-400/30 px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                <Sparkles size={12} className="text-blue-400" />
+                <span>KataleIA • Asistente IA</span>
+              </div>
+              <p className="text-slate-200 text-xs md:text-sm leading-relaxed font-semibold">
+                ¡Hola! Aquí puedes revisar el análisis detallado del entorno organizacional de AJUPTEL Carabobo.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Grid Principal de Tarjetas (Fila superior e intermedia - Intactas) */}
+      {/* Grid Principal de Tarjetas */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         {/* Tarjeta 1: La Organización */}
@@ -107,7 +139,7 @@ export default function ContextoProyectoPage() {
           </ul>
         </div>
 
-        {/* Tarjeta 5: Visión 2027 */}
+        {/* Tarjeta 5: Visión 2027 (Actualizada con 3 columnas e inclusión de accesibilidad/chatbot) */}
         <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-purple-50 rounded-lg text-purple-600">
@@ -115,7 +147,7 @@ export default function ContextoProyectoPage() {
             </div>
             <h2 className="font-bold text-slate-800 uppercase text-sm tracking-wider">Metas Estratégicas 2027</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
             <div className="flex items-start gap-2">
               <div className="h-2 w-2 rounded-full bg-purple-400 mt-1.5 shrink-0"></div>
               <p className="text-slate-600"><span className="font-bold text-slate-900">Satisfacción:</span> Incremento del 70% en la percepción de calidad del servicio.</p>
@@ -123,6 +155,10 @@ export default function ContextoProyectoPage() {
             <div className="flex items-start gap-2">
               <div className="h-2 w-2 rounded-full bg-purple-400 mt-1.5 shrink-0"></div>
               <p className="text-slate-600"><span className="font-bold text-slate-900">Digitalización:</span> 100% de expedientes físicos migrados al sistema seguro.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <div className="h-2 w-2 rounded-full bg-purple-400 mt-1.5 shrink-0"></div>
+              <p className="text-slate-600"><span className="font-bold text-slate-900">Accesibilidad y Soporte:</span> Interfaz adaptada con menú inclusivo y <span className="font-bold text-slate-900">chatbot interactivo</span> para facilitar la navegación.</p>
             </div>
           </div>
         </div>

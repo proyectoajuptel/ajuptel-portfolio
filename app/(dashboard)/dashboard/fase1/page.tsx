@@ -139,66 +139,69 @@ export default function FaseUnoPage() {
   }
 
   return (
-    <div className="p-8 max-w-7xl mx-auto bg-slate-50 min-h-screen space-y-6">
+    <div className="w-full max-w-none px-4 sm:px-6 lg:px-8 pt-3 pb-8 bg-slate-50 min-h-screen space-y-6">
       
-      {/* Botón Enlace de Retorno al Dashboard de Fases */}
-      <div>
-        <Link 
-          href="/dashboard/fases" 
-          className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 uppercase tracking-wider transition-colors group"
-        >
-          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-          Volver a Fases
-        </Link>
-      </div>
-
-      {/* ENCABEZADO Y KATALEIA GRANDE A LA DERECHA */}
-      <div className="flex flex-col xl:flex-row justify-between items-stretch gap-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
-        
-        {/* Título y descripción de la Fase */}
-        <div className="flex flex-col justify-center space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl">
-              <FolderOpen size={28} className="stroke-[2.5]" />
-            </div>
-            <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight uppercase">
-              Fase I: Inicio
-            </h1>
-          </div>
-          <div className="h-1.5 w-20 bg-blue-600 rounded-full" />
-          <p className="text-sm md:text-base text-slate-500 max-w-2xl pt-1 leading-relaxed font-medium">
-            Artefactos de inicio, fundamentación y documentación técnica inicial de AJUPTEL Carabobo.
-          </p>
+      {/* Contenedor Unificado para la parte superior */}
+      <div className="space-y-4">
+        {/* Botón Enlace de Retorno al Dashboard de Fases */}
+        <div>
+          <Link 
+            href="/dashboard/fases" 
+            className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 uppercase tracking-wider transition-colors group"
+          >
+            <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+            Volver a Fases
+          </Link>
         </div>
 
-        {/* TARJETA DE KATALEIA GRANDE Y DESTACADA */}
-        <div className="w-full xl:w-105 bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 border-2 border-blue-500/40 rounded-3xl p-5 text-white shadow-xl flex items-center gap-5 relative overflow-hidden shrink-0">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+        {/* ENCABEZADO Y KATALEIA GRANDE A LA DERECHA */}
+        <div className="flex flex-col xl:flex-row justify-between items-stretch gap-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
           
-          {/* Imagen más grande */}
-          <div className="relative shrink-0">
-            <div className="w-24 h-28 md:w-28 md:h-32 rounded-2xl bg-blue-600/20 border-2 border-blue-400/50 overflow-hidden shadow-lg flex items-center justify-center">
-              <img 
-                src="/imagenes/kataleia.png" 
-                alt="KataleIA" 
-                className="w-full h-full object-cover object-top scale-125 pt-2"
-              />
+          {/* Título y descripción de la Fase */}
+          <div className="flex flex-col justify-center space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl">
+                <FolderOpen size={28} className="stroke-[2.5]" />
+              </div>
+              <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
+                Fase I: Inicio
+              </h1>
             </div>
-            <span className="absolute -bottom-1 -right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-slate-900 animate-pulse" />
-          </div>
-
-          {/* Textos y contenido */}
-          <div className="space-y-2 flex-1">
-            <div className="inline-flex items-center gap-1.5 bg-blue-600/30 text-blue-300 border border-blue-400/30 px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider">
-              <Sparkles size={12} className="text-blue-400" />
-              <span>KataleIA • Asistente IA</span>
-            </div>
-            <p className="text-slate-200 text-xs md:text-sm leading-relaxed font-semibold">
-              ¡Hola! Revisa los documentos de la Fase I y deja abajo tus observaciones y notas del jurado.
+            <div className="h-1 w-16 bg-blue-600 rounded-full" />
+            <p className="text-sm text-slate-500 max-w-2xl pt-1 leading-relaxed font-medium">
+              Artefactos de inicio, fundamentación y documentación técnica inicial de AJUPTEL Carabobo.
             </p>
           </div>
-        </div>
 
+          {/* TARJETA DE KATALEIA GRANDE Y DESTACADA */}
+          <div className="w-full xl:w-105 bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 border-2 border-blue-500/40 rounded-3xl p-5 text-white shadow-xl flex items-center gap-5 relative overflow-hidden shrink-0">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+            
+            {/* Imagen más grande */}
+            <div className="relative shrink-0">
+              <div className="w-24 h-28 md:w-28 md:h-32 rounded-2xl bg-blue-600/20 border-2 border-blue-400/50 overflow-hidden shadow-lg flex items-center justify-center">
+                <img 
+                  src="/imagenes/kataleia.png" 
+                  alt="KataleIA" 
+                  className="w-full h-full object-cover object-top scale-125 pt-2"
+                />
+              </div>
+              <span className="absolute -bottom-1 -right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-slate-900 animate-pulse" />
+            </div>
+
+            {/* Textos y contenido */}
+            <div className="space-y-2 flex-1">
+              <div className="inline-flex items-center gap-1.5 bg-blue-600/30 text-blue-300 border border-blue-400/30 px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                <Sparkles size={12} className="text-blue-400" />
+                <span>KataleIA • Asistente IA</span>
+              </div>
+              <p className="text-slate-200 text-xs md:text-sm leading-relaxed font-semibold">
+                ¡Hola! Revisa los documentos de la Fase I y deja abajo tus observaciones y notas del jurado.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       {/* GRID DOCUMENTOS */}

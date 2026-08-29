@@ -79,11 +79,6 @@ const navigation: NavGroup[] = [
         isActive: true,
         status: "Finalizado",
         isBlocked: false,
-        /*subItems: [
-          { title: "Caso de Negocio", url: "/dashboard/fase1/caso-negocio" },
-          { title: "Acta de Constitución", url: "/dashboard/fase1/acta" },
-          { title: "Product Backlog", url: "/dashboard/fase1/backlog" },
-        ]*/
       },
       { title: "Fase II: Estimación y Planificación", url: "/dashboard/fase2", icon: Milestone, status: "Finalizado", isBlocked: false },
       { title: "Fase III: Implementación", url: "/dashboard/fase3", icon: Cpu, status: "Finalizado", isBlocked: false },
@@ -94,7 +89,7 @@ const navigation: NavGroup[] = [
   {
     group: "Finalización",
     items: [
-      { title: "Conclusiones", url: "#", icon: CheckCircle2, status: "Por iniciar", isBlocked: true },
+      { title: "Defensa y Presentación", url: "/dashboard/finalizacion", icon: CheckCircle2, status: "Disponible", isBlocked: false },
     ],
   },
 ]
@@ -131,7 +126,6 @@ export default function AppSidebar() {
                     {item.subItems && !item.isBlocked ? (
                       <Collapsible defaultOpen={item.isActive} className="group/collapsible">
                         <SidebarMenuItem className="flex flex-col">
-                          {/* Contenedor relativo para separar Link de Trigger */}
                           <div className="relative flex items-center group">
                             <Link href={item.url} className="w-full">
                               <SidebarMenuButton 
@@ -148,7 +142,6 @@ export default function AppSidebar() {
                               </SidebarMenuButton>
                             </Link>
                             
-                            {/* Flecha lateral que solo controla el colapso */}
                             <CollapsibleTrigger asChild>
                               <button className="absolute right-2 p-1.5 rounded-md hover:bg-blue-100 text-slate-400 hover:text-blue-600 transition-colors">
                                 <ChevronRight className="h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
