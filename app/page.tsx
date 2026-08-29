@@ -24,7 +24,7 @@ export default function HomePage() {
 
         {/* Título Principal */}
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-4 leading-tight text-slate-900">
-          SIDAG2.0<br />
+          AJUDAG2.0<br />
           <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-indigo-500">
             Transformación Digital Administrativa AJUPTEL
           </span>
