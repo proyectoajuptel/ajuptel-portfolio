@@ -2,7 +2,7 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, Cpu, Sparkles } from "lucide-react"
+import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, Cpu, Sparkles, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { supabase } from "@/lib/supabase"
 
@@ -19,10 +19,51 @@ interface Revision {
 export default function FaseTresPage() {
   // Lista de documentos y artefactos correspondientes a la Fase III
   const documentos = [
-    { id: "p3-1", nombre: "3.1. Repositorio de Código y Control de Versiones", slug: "repositorio_codigo_ajuptel", tipo: "GIT,URL", linkWord: "/docs/fase3/repositorio_codigo_ajuptel.docx" },
-    { id: "p3-2", nombre: "3.2. Manual de Desarrollo e Implementación", slug: "manual_desarrollo_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase3/manual_desarrollo_ajuptel.docx" },
-    { id: "p3-3", nombre: "3.3. Reporte de Sprints y Ejecución", slug: "reporte_sprints_ajuptel", tipo: "PDF,EXCEL", linkWord: "/docs/fase3/reporte_sprints_ajuptel.xlsx" }
-  ]
+    { 
+      id: "p3-1", 
+      nombre: "3.1. Repositorio de Código y Control de Versiones", 
+      slug: "repositorio_codigo_ajuptel", 
+      tipo: "GIT", 
+      linkUrl: "https://github.com/tu-usuario/tu-repositorio" // Reemplaza por tu URL de GitHub
+    },
+    { 
+      id: "p3-2", 
+      nombre: "3.2. Documento de Implementación AJUPTEL", 
+      slug: "implementacion_ajuptel", 
+      tipo: "DOCX", 
+      linkWord: "/docs/fase3/Implementacion_AJUPTEL.docx" 
+    },
+    { 
+      id: "p3-3", 
+      nombre: "3.3. Base de Datos AJUDAG2", 
+      slug: "base_datos_ajudag2", 
+      tipo: "URL / DOCX", 
+      linkWord: "/docs/fase3/base_datos_ajudag2.docx",
+      linkUrl: "https://dbdiagram.io/d/AJUDAG2-0-6a930dc5aed2f4f6be619dff"
+    },
+    { 
+      id: "p3-4", 
+      nombre: "3.4. Diccionario de Datos", 
+      slug: "diccionario_datos", 
+      tipo: "PDF", 
+      linkPdf: "/docs/fase3/diccionario_datos.pdf" 
+    },
+    { 
+      id: "p3-5", 
+      nombre: "3.5. Informe de Normalización y Análisis 3FN", 
+      slug: "informe_normalizacion_y_analisis_3fn", 
+      tipo: "PDF", 
+      linkPdf: "/docs/fase3/InformedeNormalizaciónyAnálisis3FN.pdf" 
+    },
+    { 
+      id: "p3-6", 
+      nombre: "3.6. Informe Consolidado Mensual de Implementación y Desarrollo", 
+      slug: "informe_consolidado_mensual_implementacion_y_desarrollo", 
+      tipo: "DOCX", 
+      linkWord: "/docs/fase3/InformeConsolidadoMensualImplementacionyDesarrollo.docx" 
+    }
+    
+  ];
 
   // Lista de profesores disponibles para seleccionar
   const listaProfesores = [
@@ -207,12 +248,46 @@ export default function FaseTresPage() {
               </div>
             </div>
             <div className="flex gap-2 shrink-0">
-              <Link href={`/visor/${doc.slug}`} className="p-3 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-colors">
-                <Eye size={18} />
-              </Link>
-              <a href={doc.linkWord} download className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors">
-                <Download size={18} />
-              </a>
+              {/* Visor PDF (no se incluye para el repositorio puro) */}
+              {doc.tipo !== "GIT" && (
+                <Link href={`/visor/${doc.slug}`} className="p-3 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-colors" title="Ver Documento">
+                  <Eye size={18} />
+                </Link>
+              )}
+
+              {/* Botón de Enlace URL Externo (BD o Repositorio) */}
+              {doc.linkUrl && (
+                <a 
+                  href={doc.linkUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors"
+                  title="Abrir enlace externo"
+                >
+                  <ExternalLink size={18} />
+                </a>
+              )}
+
+              {/* Botón de Descarga WORD / PDF */}
+              {doc.linkWord ? (
+                <a 
+                  href={doc.linkWord} 
+                  download 
+                  className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors"
+                  title="Descargar DOCX"
+                >
+                  <Download size={18} />
+                </a>
+              ) : doc.linkPdf && (
+                <a 
+                  href={doc.linkPdf} 
+                  download 
+                  className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors"
+                  title="Descargar PDF"
+                >
+                  <Download size={18} />
+                </a>
+              )}
             </div>
           </div>
         ))}
@@ -283,7 +358,7 @@ export default function FaseTresPage() {
         {tipoComentario === "especifico" && (
           <div className="space-y-2 animate-fadeIn">
             <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider block">
-              Haz clic en un documento para insertar sua etiqueta en el cuadro de texto:
+              Haz clic en un documento para insertar su etiqueta en el cuadro de texto:
             </label>
             <div className="flex flex-wrap gap-2 max-h-36 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-700">
               {documentos.map((doc) => {

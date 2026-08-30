@@ -76,6 +76,31 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
     file: "/docs/fase2/fase2_Reunion_sprint_planning_AJUPTEL.pdf"
   },
 
+  // --- FASE 3 ---
+  "repositorio_codigo_ajuptel": {
+    title: "3.1. Repositorio de Código y Control de Versiones",
+    file: "" // No requiere PDF local por ser un repositorio externo (GitHub)
+  },
+  "implementacion_ajuptel": {
+    title: "3.2. Documento de Implementación AJUPTEL",
+    file: "/docs/fase3/Implementacion_AJUPTEL.pdf"
+    },
+  "base_datos_ajudag2": {
+   title: "3.3. Base de Datos AJUDAG2",
+    file: "/docs/fase3/base_datos_ajudag2.pdf"
+  },
+  "diccionario_datos": {
+    title: "3.4. Diccionario de Datos",
+    file: "/docs/fase3/diccionario_datos.pdf"
+  },
+  "informe_normalizacion_y_analisis_3fn": {
+    title: "3.5. Informe de Normalización y Análisis 3FN",
+    file: "/docs/fase3/InformedeNormalizaciónyAnálisis3FN.pdf"
+  },
+  "informe_consolidado_mensual_implementacion_y_desarrollo": {
+    title: "3.6. Informe Consolidado Mensual de Implementación y Desarrollo",
+    file: "/docs/fase3/InformeConsolidadoMensualImplementacionyDesarrollo.pdf"
+  },
   // --- FASE 4 ---
   "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {
     title: "4.1. Acta Revisión y Retrospectiva del Proyecto",
