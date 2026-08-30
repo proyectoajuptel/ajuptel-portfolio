@@ -26,7 +26,7 @@ export const fasesProyecto = [
     estado: "Por Iniciar", // Tu fase activa actual
     color: "bg-slate-400",
     descripcion: "Creación de los entregables del producto. Ejecución activa del Sprint 0 (configuración de arquitectura) y el Sprint 1, gestionando las actividades diarias.",
-    hitos: ["Sprint 0 Completado", "Sprint 1 en Desarrollo", "Incremento de Software"],
+    hitos: ["7 sprints culminados",  "Incremento de Software"],
     bloqueado: true,
     progreso: 0
   },
@@ -36,7 +36,7 @@ export const fasesProyecto = [
     estado: "Por Iniciar",
     color: "bg-slate-400",
     descripcion: "Inspección del incremento de software desarrollado con los miembros de la asociación (Sprint Review) y evaluación interna del proceso de trabajo del equipo (Retrospectiva).",
-    hitos: ["Demostración del Producto", "Sprint Review", "Plan de Mejoras (Retro)"],
+    hitos: [ "Revisiones y lecciones aprendidas"],
     bloqueado: true,
     progreso: 0
   },
