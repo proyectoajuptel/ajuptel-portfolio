@@ -19,7 +19,7 @@ interface Revision {
 export default function FinalizacionPage() {
   // Lista de documentos y artefactos correspondientes a la Defensa y Finalización
   const documentos = [
-    { id: "fin-1", nombre: "Presentación Final de la Defensa", slug: "presentacion_final_proyecto_ajuptel", tipo: "DIAPOSITIVAS / PDF", linkWord: "/docs/fase6/presentacion_final_proyecto_ajuptel.pdf" },
+    { id: "fin-1", nombre: "Presentación Final de la Socialización", slug: "presentacion_final_proyecto_ajuptel", tipo: "DIAPOSITIVAS / PDF", linkWord: "/docs/fase6/presentacion_final_proyecto_ajuptel.pdf" },
     { id: "fin-2", nombre: "Resumen y Sinopsis del Proyecto Sociotecnológico", slug: "resumen_proyecto_ajuptel", tipo: "PDF, WORD", linkWord: "/docs/fase6/resumen_proyecto_ajuptel.docx" },
     { id: "fin-3", nombre: "QR para Acceso a AJUDAG2.0", slug: "qr_ajudag2", tipo: "ENLACE / QR", linkWord: "#" }
   ]
@@ -110,7 +110,7 @@ export default function FinalizacionPage() {
               <Presentation size={28} className="stroke-[2.5]" />
             </div>
             <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight uppercase">
-              Finalización y Defensa
+              Cierre y Socialización
             </h1>
           </div>
           <div className="h-1.5 w-20 bg-blue-600 rounded-full" />
@@ -142,7 +142,7 @@ export default function FinalizacionPage() {
               <span>KataleIA • Asistente IA</span>
             </div>
             <p className="text-slate-200 text-xs md:text-sm leading-relaxed font-semibold">
-              ¡Felicidades por llegar hasta aquí! Todo listo para la gran defensa y el despliegue de AJUDAG2.0.
+              ¡Felicidades por llegar hasta aquí! Todo listo para la gran socialización del proyecto AJUDAG2.0.
             </p>
           </div>
         </div>
@@ -219,7 +219,7 @@ export default function FinalizacionPage() {
         {/* HISTORIAL DE FEEDBACK */}
         <div className="space-y-4 pt-6 border-t border-slate-800">
           <h4 className="flex items-center gap-2 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-            <History size={14} /> Historial de Evaluaciones de la Defensa
+            <History size={14} /> Historial de Evaluaciones de la Socialización
           </h4>
           
           {cargando ? (
