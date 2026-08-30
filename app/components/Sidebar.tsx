@@ -83,7 +83,7 @@ const navigation: NavGroup[] = [
       { title: "Fase II: Estimación y Planificación", url: "/dashboard/fase2", icon: Milestone, status: "Finalizado", isBlocked: false },
       { title: "Fase III: Implementación", url: "/dashboard/fase3", icon: Cpu, status: "Finalizado", isBlocked: false },
       { title: "Fase IV: Revisión y Retrospectiva", url: "/dashboard/fase4", icon: FileSearch, status: "Finalizado", isBlocked: false },
-      { title: "Fase V: Lanzamiento (Despliegue y Cierre Técnico)", url: "/dashboard/fase5", icon: Rocket, status: "Finalizado", isBlocked: false },
+      { title: "Fase V: Lanzamiento", url: "/dashboard/fase5", icon: Rocket, status: "Finalizado", isBlocked: false },
     ],
   },
   {
