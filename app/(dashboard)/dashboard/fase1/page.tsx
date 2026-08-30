@@ -39,7 +39,8 @@ export default function FaseUnoPage() {
     "Prof(a). María Dolores Espinoza",
     "Prof. Rafael Aparicio",
     "Prof. Giovanni Lenttini",
-    "Prof. Cristofer Urbina"
+    "Prof. Cristofer Urbina",
+    "Prof. Luis Rivas"
   ]
 
   const [nuevaNota, setNuevaNota] = useState("")

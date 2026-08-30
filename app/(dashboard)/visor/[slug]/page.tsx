@@ -80,7 +80,73 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
   "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {
     title: "4.1. Acta Revisión y Retrospectiva del Proyecto",
     file: "/docs/fase4/fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL.pdf"
-  }
+  },
+
+  // --- FASE 5 (PRUEBAS DE SOFTWARE) ---
+"fase5_informeconsolidadoPlanDePruebas": {
+  title: "5.4.1. Informe Consolidado Plan de Pruebas",
+  file: "/docs/fase5/pruebas/fase5_informeconsolidadoPlanDePruebas.pdf"
+},
+"Informe_de_Tests_AJUPTEL": {
+  title: "5.4.2. Informe General de Tests AJUPTEL",
+  file: "/docs/fase5/pruebas/Informe_de_Tests_AJUPTEL.pdf"
+},
+"Informe_Detallado_Pruebas_Funcionales_AJUDAG2": {
+  title: "5.4.3. Informe Detallado de Pruebas Funcionales",
+  file: "/docs/fase5/pruebas/Informe_Detallado_Pruebas_Funcionales_AJUDAG2.pdf"
+},
+"Informe_Resumido_Pruebas_Funcionales_AJUDAG2": {
+  title: "5.4.4. Informe Resumido de Pruebas Funcionales",
+  file: "/docs/fase5/pruebas/Informe_Resumido_Pruebas_Funcionales_AJUDAG2.pdf"
+},
+"informe_pruebas_Pruebas Unitarias y Funcionales_resumido": {
+  title: "5.4.5. Informe Resumido de Pruebas Unitarias y Funcionales",
+  file: "/docs/fase5/pruebas/informe_pruebas_Pruebas Unitarias y Funcionales_resumido .pdf"
+},
+"Informe_Pruebas_Integracion_AJUDAG2_Detallado": {
+  title: "5.4.6. Informe Detallado de Pruebas de Integración",
+  file: "/docs/fase5/pruebas/Informe_Pruebas_Integracion_AJUDAG2_Detallado.pdf"
+},
+"Informe_Pruebas_Integracion_AJUDAG2_Resumido": {
+  title: "5.4.7. Informe Resumido de Pruebas de Integración",
+  file: "/docs/fase5/pruebas/Informe_Pruebas_Integracion_AJUDAG2_Resumido.pdf"
+},
+"Informe_Detallado_Smoke_Testing_AJUDAG2": {
+  title: "5.4.8. Informe Detallado de Smoke Testing",
+  file: "/docs/fase5/pruebas/Informe_Detallado_Smoke_Testing_AJUDAG2.pdf"
+},
+"Informe_Resumido_Smoke_Testing_AJUDAG2": {
+  title: "5.4.9. Informe Resumido de Smoke Testing",
+  file: "/docs/fase5/pruebas/Informe_Resumido_Smoke_Testing_AJUDAG2.pdf"
+},
+"Informe_Detallado_Pruebas_Seguridad_AJUDAG2": {
+  title: "5.4.10. Informe Detallado de Pruebas de Seguridad",
+  file: "/docs/fase5/pruebas/Informe_Detallado_Pruebas_Seguridad_AJUDAG2.pdf"
+},
+"Informe_Resumido_Pruebas_Seguridad_AJUDAG2": {
+  title: "5.4.11. Informe Resumido de Pruebas de Seguridad",
+  file: "/docs/fase5/pruebas/Informe_Resumido_Pruebas_Seguridad_AJUDAG2.pdf"
+},
+"Informe_Detallado_Rendimiento_Compatibilidad_AJUDAG2": {
+  title: "5.4.12. Informe Detallado Rendimiento y Compatibilidad",
+  file: "/docs/fase5/pruebas/Informe_Detallado_Rendimiento_Compatibilidad_AJUDAG2.pdf"
+},
+"Informe_Resumido_Rendimiento_Compatibilidad_AJUDAG2": {
+  title: "5.4.13. Informe Resumido Rendimiento y Compatibilidad",
+  file: "/docs/fase5/pruebas/Informe_Resumido_Rendimiento_Compatibilidad_AJUDAG2.pdf"
+},
+"fase5_retrospectivafinal_AJUPTEL": {
+  title: "5.1. Aportes a la Retrospectiva Final del Proyecto",
+  file: "/docs/fase5/fase5_retrospectivafinal_AJUPTEL.pdf"
+},
+"manual_usuario_ajuptel": {
+  title: "5.2. Manual de Usuario",
+  file: "/docs/fase5/manual_usuario_ajuptel.pdf"
+},
+"manual_tecnico_ajuptel": {
+  title: "5.3. Manual Técnico",
+  file: "/docs/fase5/manual_tecnico_ajuptel.pdf"
+}
 
   // --- FINALIZACIÓN ---
  // "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {

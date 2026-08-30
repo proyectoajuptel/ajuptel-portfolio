@@ -17,7 +17,7 @@ import {
 export default function FasesScrumPage() {
   const fasesScrum = [
     {
-      title: "Fase 1: Inicio",
+      title: "Fase 1: Inicio (Preparación Técnica)",
       description: "Creación del documento inicial, caso de negocio, lean inception, de la visión del proyecto, identificación del Scrum Master y Stakeholders, y desarrollo del Product Backlog inicial.",
       icon: PlayCircle,
       url: "/dashboard/fase1",
@@ -53,7 +53,7 @@ export default function FasesScrumPage() {
       badge: "Finalizado",
     },
     {
-      title: "Fase 5: Lanzamiento",
+      title: "Fase 5: Lanzamiento (Despliegue y Cierre Técnico)",
       description: "Entrega final del producto de software optimizado para AJUPTEL Carabobo y cierre formal del proyecto.",
       icon: Rocket,
       url: "/dashboard/fase5",

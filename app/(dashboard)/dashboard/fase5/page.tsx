@@ -2,7 +2,7 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, Rocket, Sparkles } from "lucide-react"
+import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, Rocket, Sparkles, FolderCheck, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { supabase } from "@/lib/supabase"
 
@@ -19,9 +19,9 @@ interface Revision {
 export default function FaseCincoPage() {
   // Lista de documentos y artefactos correspondientes a la Fase V
   const documentos = [
-    { id: "p5-1", nombre: "5.1. Acta de Entrega y Cierre del Proyecto", slug: "acta_entrega_cierre_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/acta_entrega_cierre_ajuptel.docx" },
-    { id: "p5-2", nombre: "5.2. Manual de Usuario y Despliegue Final", slug: "manual_usuario_despliegue_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_usuario_despliegue_ajuptel.docx" },
-    { id: "p5-3", nombre: "5.3. Informe de Lecciones Aprendidas", slug: "informe_lecciones_aprendidas_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/informe_lecciones_aprendidas_ajuptel.docx" }
+    { id: "p5-1", nombre: "5.1. Aportes a la Retrospectiva Final del Proyecto", slug: "fase5_retrospectivafinal_AJUPTEL", tipo: "PDF,WORD", linkWord: "/docs/fase5/fase5_retrospectivafinal_AJUPTEL.docx" },
+    { id: "p5-2", nombre: "5.2. Manual de Usuario", slug: "manual_usuario_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_usuario_ajuptel.docx" },
+    { id: "p5-3", nombre: "5.3. Manual Técnico", slug: "manual_tecnico_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_tecnico_ajuptel.docx" }
   ]
 
   // Lista de profesores disponibles para seleccionar (Jurado)
@@ -30,7 +30,8 @@ export default function FaseCincoPage() {
     "Prof(a). María Dolores Espinoza",
     "Prof. Rafael Aparicio",
     "Prof. Giovanni Lenttini",
-    "Prof. Cristofer Urbina"
+    "Prof. Cristofer Urbina",
+    "Prof. Luis Rivas"
   ]
 
   const [nuevaNota, setNuevaNota] = useState("")
@@ -185,15 +186,17 @@ export default function FaseCincoPage() {
               <span>KataleIA • Asistente IA</span>
             </div>
             <p className="text-slate-200 text-xs md:text-sm leading-relaxed font-semibold">
-              ¡Hola! Revisa los artefactos de entrega y despliegue de la Fase V, y deja tus valoraciones abajo.
+              ¡Hola! Revisa los documentos de entrega y despliegue de la Fase V, y deja tus valoraciones abajo.
             </p>
           </div>
         </div>
 
       </div>
 
-      {/* GRID DOCUMENTOS */}
+      {/* GRID DOCUMENTOS Y MÓDULO DE PRUEBAS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {/* 1. DOCUMENTOS ESTÁNDAR (5.1, 5.2, 5.3) */}
         {documentos.map((doc) => (
           <div key={doc.id} className="bg-white p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow rounded-xl flex items-center justify-between group">
             <div className="flex items-center gap-4">
@@ -215,6 +218,33 @@ export default function FaseCincoPage() {
             </div>
           </div>
         ))}
+
+        {/* 2. TARJETA ESPECIAL: MÓDULO DE PRUEBAS DE SOFTWARE (5.4) - AHORA AL FINAL */}
+        <Link 
+          href="/dashboard/fase5/pruebas" 
+          className="bg-slate-900 text-white p-6 border border-slate-800 shadow-md hover:shadow-xl hover:border-blue-500 transition-all rounded-xl flex items-center justify-between group cursor-pointer"
+        >
+          <div className="flex items-center gap-4">
+            <div className="h-12 w-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center shrink-0 border border-blue-500/30 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <FolderCheck size={26} />
+            </div>
+            <div>
+              <p className="font-bold text-white text-sm md:text-base leading-snug group-hover:text-blue-400 transition-colors">
+                5.4. Suite Completa de Pruebas de Software
+              </p>
+              <p className="text-[10px] text-blue-400 font-bold uppercase mt-1 tracking-wider">
+                MÓDULO DE INFORMES (PDF / WORD)
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-2 shrink-0">
+            <div className="p-3 bg-blue-600 text-white rounded-xl group-hover:bg-blue-500 transition-all flex items-center gap-2">
+              <span className="text-xs font-bold hidden sm:inline">Explorar</span>
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </Link>
+
       </div>
 
       {/* PANEL DEL PROFESOR / JURADO */}
