@@ -167,11 +167,11 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
 "manual_usuario_ajuptel": {
   title: "5.2. Manual de Usuario",
   file: "/docs/fase5/manual_usuario_ajuptel.pdf"
-},
-"manual_tecnico_ajuptel": {
-  title: "5.3. Manual Técnico",
-  file: "/docs/fase5/manual_tecnico_ajuptel.pdf"
 }
+//"manual_tecnico_ajuptel": {
+ // title: "5.3. Manual Técnico",
+  //file: "/docs/fase5/manual_tecnico_ajuptel.pdf"
+//}
 
   // --- FINALIZACIÓN ---
  // "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {

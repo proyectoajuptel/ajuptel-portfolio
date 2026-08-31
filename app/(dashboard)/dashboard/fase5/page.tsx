@@ -20,8 +20,8 @@ export default function FaseCincoPage() {
   // Lista de documentos y artefactos correspondientes a la Fase V
   const documentos = [
     { id: "p5-1", nombre: "5.1. Aportes a la Retrospectiva Final del Proyecto", slug: "fase5_retrospectivafinal_AJUPTEL", tipo: "PDF,WORD", linkWord: "/docs/fase5/fase5_retrospectivafinal_AJUPTEL.docx" },
-    { id: "p5-2", nombre: "5.2. Manual de Usuario", slug: "manual_usuario_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_usuario_ajuptel.docx" },
-    { id: "p5-3", nombre: "5.3. Manual Técnico", slug: "manual_tecnico_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_tecnico_ajuptel.docx" }
+    { id: "p5-2", nombre: "5.2. Manual de Usuario", slug: "manual_usuario_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_usuario_ajuptel.docx" }
+    //{ id: "p5-3", nombre: "5.3. Manual Técnico", slug: "manual_tecnico_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase5/manual_tecnico_ajuptel.docx" }
   ]
 
   // Lista de profesores disponibles para seleccionar (Jurado)

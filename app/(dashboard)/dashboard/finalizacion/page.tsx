@@ -2,7 +2,7 @@
 "use client"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, Presentation, Sparkles, QrCode } from "lucide-react"
+import { FileText, Download, Eye, Save, History, UserCheck, Loader2, ArrowLeft, Presentation, Sparkles, QrCode, ExternalLink, X } from "lucide-react"
 import Link from "next/link"
 import { supabase } from "@/lib/supabase"
 
@@ -17,11 +17,35 @@ interface Revision {
 }
 
 export default function FinalizacionPage() {
+  const [modalImagen, setModalImagen] = useState<string | null>(null)
+
   // Lista de documentos y artefactos correspondientes a la Defensa y Finalización
   const documentos = [
-    { id: "fin-1", nombre: "Presentación Final de la Socialización", slug: "presentacion_final_proyecto_ajuptel", tipo: "DIAPOSITIVAS / PDF", linkWord: "/docs/fase6/presentacion_final_proyecto_ajuptel.pdf" },
-    { id: "fin-2", nombre: "Resumen y Sinopsis del Proyecto Sociotecnológico", slug: "resumen_proyecto_ajuptel", tipo: "PDF, WORD", linkWord: "/docs/fase6/resumen_proyecto_ajuptel.docx" },
-    { id: "fin-3", nombre: "QR para Acceso a AJUDAG2.0", slug: "qr_ajudag2", tipo: "ENLACE / QR", linkWord: "#" }
+    { 
+      id: "fin-1", 
+      nombre: "Presentación Final de la Socialización", 
+      slug: "presentacion_final_proyecto_ajuptel", 
+      tipo: "DIAPOSITIVAS / PDF", 
+      linkWord: "/docs/fase6/presentacion_final_proyecto_ajuptel.pdf" 
+    },
+    /* 
+    // Documento comentado temporalmente por solicitud
+    { 
+      id: "fin-2", 
+      nombre: "Resumen y Sinopsis del Proyecto Sociotecnológico", 
+      slug: "resumen_proyecto_ajuptel", 
+      tipo: "PDF, WORD", 
+      linkWord: "/docs/fase6/resumen_proyecto_ajuptel.docx" 
+    }, 
+    */
+    { 
+      id: "fin-3", 
+      nombre: "QR para Acceso a AJUDAG2.0", 
+      slug: "qr_ajudag2", 
+      tipo: "IMAGEN QR", 
+      imagenUrl: "/imagenes/qr.jpg",
+      linkUrl: "https://ajuptelcarabobo.org/"
+    }
   ]
 
   // Lista de profesores / jurados disponibles para seleccionar
@@ -47,7 +71,7 @@ export default function FinalizacionPage() {
       const { data, error } = await supabase
         .from('revisiones')
         .select('*')
-        .eq('fase', 'finalizacion') // Usamos 'finalizacion' para la base de datos
+        .eq('fase', 'finalizacion')
         .order('fecha', { ascending: false })
       
       if (error) throw error
@@ -119,11 +143,10 @@ export default function FinalizacionPage() {
           </p>
         </div>
 
-        {/* TARJETA DE KATALEIA GRANDE Y DESTACADA */}
+        {/* TARJETA DE KATALEIA */}
         <div className="w-full xl:w-105 bg-linear-to-br from-slate-900 via-blue-950 to-slate-900 border-2 border-blue-500/40 rounded-3xl p-5 text-white shadow-xl flex items-center gap-5 relative overflow-hidden shrink-0">
           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
           
-          {/* Imagen de KataleIA */}
           <div className="relative shrink-0">
             <div className="w-24 h-28 md:w-28 md:h-32 rounded-2xl bg-blue-600/20 border-2 border-blue-400/50 overflow-hidden shadow-lg flex items-center justify-center">
               <img 
@@ -135,7 +158,6 @@ export default function FinalizacionPage() {
             <span className="absolute -bottom-1 -right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-slate-900 animate-pulse" />
           </div>
 
-          {/* Textos y contenido */}
           <div className="space-y-2 flex-1">
             <div className="inline-flex items-center gap-1.5 bg-blue-600/30 text-blue-300 border border-blue-400/30 px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider">
               <Sparkles size={12} className="text-blue-400" />
@@ -149,32 +171,94 @@ export default function FinalizacionPage() {
 
       </div>
 
-      {/* GRID DOCUMENTOS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* GRID DOCUMENTOS Y TARJETAS */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {documentos.map((doc) => (
           <div key={doc.id} className="bg-white p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow rounded-xl flex flex-col justify-between group">
+            
             <div className="flex items-start gap-4 mb-4">
               <div className="h-12 w-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
-                {doc.id === "fin-3" ? <QrCode size={24} /> : <FileText size={24} />}
+                {doc.imagenUrl ? <QrCode size={24} /> : <FileText size={24} />}
               </div>
               <div>
                 <p className="font-bold text-slate-800 text-sm md:text-base leading-snug">{doc.nombre}</p>
                 <p className="text-[10px] text-slate-400 font-bold uppercase mt-1 tracking-wider">{doc.tipo}</p>
               </div>
             </div>
+
             <div className="flex gap-2 pt-2 border-t border-slate-100">
-              <Link href={`/visor/${doc.slug}`} className="flex-1 py-2.5 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 text-xs font-bold">
-                <Eye size={16} /> Ver
-              </Link>
-              {doc.id !== "fin-3" && (
+              {/* Para documentos PDF/Diapositivas */}
+              {doc.slug && !doc.imagenUrl && (
+                <Link href={`/visor/${doc.slug}`} className="flex-1 py-2.5 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 text-xs font-bold">
+                  <Eye size={16} /> Ver Documento
+                </Link>
+              )}
+
+              {/* Para la imagen QR (Abre el Pop-up directamente) */}
+              {doc.imagenUrl && (
+                <button 
+                  onClick={() => setModalImagen(doc.imagenUrl)}
+                  className="flex-1 py-2.5 bg-slate-900 text-white rounded-xl hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 text-xs font-bold"
+                >
+                  <Eye size={16} /> Ver Imagen
+                </button>
+              )}
+
+              {/* Enlace al sitio web (Si aplica) */}
+              {doc.linkUrl && (
+                <a 
+                  href={doc.linkUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  title="Abrir sitio web de AJUDAG2.0"
+                  className="px-4 py-2.5 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-600 hover:text-white transition-colors flex items-center justify-center gap-1.5 text-xs font-bold"
+                >
+                  <ExternalLink size={16} /> Ir al Sitio
+                </a>
+              )}
+
+              {/* Botón Descargar (Si aplica) */}
+              {doc.linkWord && doc.linkWord !== "#" && (
                 <a href={doc.linkWord} download className="px-4 py-2.5 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center">
                   <Download size={16} />
                 </a>
               )}
             </div>
+
           </div>
         ))}
       </div>
+
+      {/* POP-UP / MODAL PARA MOSTRAR LA IMAGEN DEL QR */}
+      {modalImagen && (
+        <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="relative bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl space-y-4 text-center">
+            <button 
+              onClick={() => setModalImagen(null)}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-800 rounded-full hover:bg-slate-100 transition-colors"
+            >
+              <X size={20} />
+            </button>
+            
+            <h3 className="text-lg font-bold text-slate-800">Código QR - AJUDAG2.0</h3>
+            
+            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 inline-block">
+              <img src={modalImagen} alt="QR Ampliado" className="w-64 h-64 mx-auto rounded-lg object-contain" />
+            </div>
+
+            <div className="pt-2">
+              <a 
+                href="https://ajuptelcarabobo.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all text-xs"
+              >
+                <ExternalLink size={16} /> Visitar ajuptelcarabobo.org
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* PANEL DE EVALUACIÓN DEL JURADO */}
       <div className="mt-12 bg-slate-900 rounded-4xl p-8 text-white shadow-xl space-y-6">
