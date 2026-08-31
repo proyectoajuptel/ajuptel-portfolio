@@ -99,7 +99,7 @@ export default function HomePage() {
               <Code2 className="text-blue-600 group-hover:text-white transition-colors" />
             </div>
             <h3 className="font-bold text-slate-900 text-lg mb-2">Stack Tecnológico</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">Arquitectura robusta basada en Node.js + NestJS para el backend, Angular 20 + Ionic 8 para una interfaz web, y MySQL 8.0 como base de datos.</p>
+            <p className="text-slate-500 text-sm leading-relaxed">Arquitectura robusta basada en Laravel, Vue.js y MySQL 8.0 como base de datos.</p>
           </div>
 
           <div className="p-8 rounded-4xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-2xl hover:shadow-blue-100 transition-all group text-left">
