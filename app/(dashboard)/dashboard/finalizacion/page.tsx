@@ -24,9 +24,9 @@ export default function FinalizacionPage() {
     { 
       id: "fin-1", 
       nombre: "Presentación Final de la Socialización", 
-      slug: "presentacion_final_proyecto_ajuptel", 
+      slug: "presentacion", 
       tipo: "DIAPOSITIVAS / PDF", 
-      linkWord: "/docs/fase6/presentacion_final_proyecto_ajuptel.pdf" 
+      linkWord: "/docs/cierre/presentacion.pdf" 
     },
     /* 
     // Documento comentado temporalmente por solicitud

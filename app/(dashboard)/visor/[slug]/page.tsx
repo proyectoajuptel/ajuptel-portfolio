@@ -61,7 +61,10 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
     title: "Lean Inception", 
     file: "/docs/fase1/lean_inception_ajuptel.pdf" 
   },
-
+  "definicionHecho_AJUPTEL": { 
+    title: "Deficición de Hecho", 
+    file: "/docs/fase1/definicionHecho_AJUPTEL.pdf" 
+  },
   // --- FASE 2 ---
   "Fase2-SprintBacklogAjuptel": {
     title: "2.1. Sprint Backlog",
@@ -167,17 +170,17 @@ const DOCS_MAP: Record<string, { title: string; file: string }> = {
 "manual_usuario_ajuptel": {
   title: "5.2. Manual de Usuario",
   file: "/docs/fase5/manual_usuario_ajuptel.pdf"
-}
+},
 //"manual_tecnico_ajuptel": {
  // title: "5.3. Manual Técnico",
   //file: "/docs/fase5/manual_tecnico_ajuptel.pdf"
 //}
 
   // --- FINALIZACIÓN ---
- // "fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL": {
-   // title: "4.1. Acta Revisión y Retrospectiva del Proyecto",
-   // file: "/docs/fase4/fase4_Informe_feedback_incremento_lecciones_aprendidas_AJUPTEL.pdf"
- // }
+  "presentacion": {
+    title: "Presentación Final",
+    file: "/docs/cierre/presentacion.pdf"
+  }
 
 
 

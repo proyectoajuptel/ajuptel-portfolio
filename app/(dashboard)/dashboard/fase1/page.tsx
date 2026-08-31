@@ -31,7 +31,8 @@ export default function FaseUnoPage() {
     { id: "p1-8", nombre: "1.8. Plan de Lanzamiento", slug: "release_plan_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/release_plan_ajuptel.docx" },
     { id: "p1-9", nombre: "1.9. Arquitectura Inicial", slug: "arquitectura_4mas1_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/arquitectura_4mas1_ajuptel.docx" },
     { id: "p1-10", nombre: "1.10. Plan de Trabajo", slug: "plan_trabajo_dev_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/plan_trabajo_dev_ajuptel.docx" },
-    { id: "p1-11", nombre: "1.11. Cronograma Detallado", slug: "cronograma_dev_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/cronograma_dev_ajuptel.docx" }
+    { id: "p1-11", nombre: "1.11. Cronograma Detallado", slug: "cronograma_dev_ajuptel", tipo: "PDF,WORD", linkWord: "/docs/fase1/cronograma_dev_ajuptel.docx" },
+    { id: "p1-12", nombre: "1.12. Definición de Hecho", slug: "definicionHecho_AJUPTEL", tipo: "PDF,WORD", linkWord: "/docs/fase1/definicionHecho_AJUPTEL.docx" }
   ]
 
   const listaProfesores = [
